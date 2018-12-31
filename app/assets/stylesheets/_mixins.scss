@@ -1,0 +1,50 @@
+
+// rounded edges for containers, 10px by default
+@mixin rounded($size: 10px) {
+  -moz-border-radius:       $size;
+  border-radius:            $size;
+  -webkit-border-radius:    $size;
+  -khtml-border-radius:     $size;
+}
+
+// larger shadow for dialogs
+@mixin dialog-shadow {
+  -moz-box-shadow:      0px 0px 10px #808080;
+  -webkit-box-shadow:   0px 0px 10px #808080;
+  box-shadow:           0px 0px 20px #808080;
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#808080')";
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#808080');
+}
+
+// drop shadow for containers
+@mixin shadow {
+  -moz-box-shadow:      2px 2px 2px #808080;
+  -webkit-box-shadow:   2px 2px 2px #808080;
+  box-shadow:           2px 2px 2px #808080;
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#808080')";
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#808080');
+}
+
+// transparent background mixin
+@mixin transparent_background {
+  /* Fallback for web browsers that doesn't support RGBa */
+  background: rgb(255, 255, 255) transparent;
+  /* RGBa with 0.6 opacity */
+  background: rgba(255, 255, 255, 0.6);
+  /* For IE 5.5 - 7*/
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99FFFFFF, endColorstr=#99FFFFFF)";
+}
+
+// make something unselectable
+@mixin unselectable {
+  -moz-user-select:     none;
+  -khtml-user-select:   none;
+  -webkit-user-select:  none;
+  user-select:          none;
+}

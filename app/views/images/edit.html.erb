@@ -1,0 +1,14 @@
+<% content_for :head do %>
+  <%= javascript_include_tag :images_edit %>
+  <%= stylesheet_link_tag :images_edit, :media => 'all' %>
+
+  <script type="text/javascript">
+    lsImageData = <%= raw @image.js_serialize.to_json %>;
+  </script>
+<% end %>
+
+<h1>Update your image</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back to your images', images_user_path %>

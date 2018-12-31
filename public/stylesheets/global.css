@@ -1,0 +1,91 @@
+/* light blue */
+/**
+ * jquery ui customizations
+ */
+/* move icon in alert / notice box down a few pix */
+.ui-icon {
+  margin-top: 4px; }
+
+.ui-widget {
+  font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+  font-size: 1.0em; }
+
+.ui-button {
+  font-size: 12px; }
+
+#errorExplanation h2, #error_explanation h2 {
+  color: #cd0a0a;
+  font-size: 18px;
+  font-weight: bold; }
+
+.errorExplanation ul, .errorExplanation li, #error_explanation ul, #error_explanation li {
+  list-style-type: disc; }
+
+.alert-notify-widget {
+  width: 750px;
+  margin-bottom: 10px; }
+
+/*  span.ui-button-text {
+   font-size: 1em;
+}    */
+/*
+span {
+  font-size:    14px;
+  line-height:  2em;
+} */
+form {
+  margin-bottom: 10px; }
+  form label {
+    font-size: 14px; }
+  form input[type=text], form input[type=password], form input[type=email] {
+    font-size: 14px;
+    padding: 4px 2px;
+    border: solid 1px #808080;
+    background-color: #edf2f7;
+    width: 200px;
+    margin: 2px 0 5px 0; }
+  form input[type=file] {
+    margin: 5px 0 5px 0; }
+  form i {
+    font-size: 12px; }
+  form p {
+    margin-top: 10px;
+    margin-bottom: 0px; }
+  form .field_with_errors {
+    color: #cd0a0a; }
+    form .field_with_errors input {
+      border: 1px solid #cd0a0a; }
+  form input[type=submit] {
+    height: 30px; }
+
+.error-box {
+  width: 560px;
+  padding: 0 0 0 60px;
+  color: #883333;
+  font-size: 12px; }
+  .error-box h4 {
+    margin: 0;
+    color: #883333;
+    font-size: 16px; }
+  .error-box p {
+    color: #883333;
+    line-height: 1em;
+    padding-bottom: 0px !important; }
+  .error-box ul {
+    margin: 0 0 0 30px; }
+  .error-box li {
+    color: #883333; }
+
+.hidden {
+  visibility: hidden; }
+
+.visible {
+  visibility: visible; }
+
+.inline-code {
+  font-family: 'Courier New'; }
+
+#social-signin {
+  margin-bottom: 20px; }
+  #social-signin a {
+    margin-right: 10px; }

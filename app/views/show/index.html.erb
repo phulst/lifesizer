@@ -1,0 +1,48 @@
+
+<% title @image.name if (@image && !@image.name.blank?) %>
+
+<% content_for :script_content do %>
+  var _gaq = _gaq || []; // if not defined yet
+  var notLifeSizeTooltip = "<%= t('.not_lifesize_tooltip') %>";
+
+  var imageRef = "<%= @image_ref %>";
+  var userId   = "<%= @user_id %>";
+  var calUrl = "<%= raw url_for :controller => 'calibrate', :action => 'start', :user => @user_id, :ref => @image_ref, :a => @app_key %>";
+  var guessedConfig = <%= !!@guessed_config %>;
+  var ppi = <%= @screen_config[:ppi] %>;
+  var imageFound = <%= @image_found %>;
+  var hasScreenSuggestions = <%= !!(@guessed_config && @screen_matches.length > 0) %>;
+  <% if @guessed_config && @screen_matches.length > 0 %>
+  var suggestionDialogContent = '<p><%=t('.ask_screen')%></p><%= render(:partial => "screen_info", :collection => @screen_matches.collect {|m| m.screen_info}) +
+      render(:partial => "screen_info", :object => calibrate_option, :locals => { :screen_info_counter => @screen_matches.length}) %>';
+  <% else %>
+  var suggestionDialogContent = '<p><%=t('.unknown_screen')%></p>';
+  <% end %>
+<% end %>
+
+<% content_for :toolbar do %>
+    <div class="buttons">
+      <a href="#" id="calibrate">Calibrate your screen</a>
+      <a href="#" id="showLifesize" title="Life Size!">1:1</a>
+    </div>
+    <div id="sliderColumn">
+      <div id="slider"></div>
+      <div id="scaleTxt">
+        <span id="scale">100</span>%</span>
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="#" id="rulerButton" title="toggle ruler"><img src="/images/icons/ruler.png" /></a>&nbsp;&nbsp;
+      <a href="#" id="gridButton" title="toggle grid"><img src="/images/icons/grid.png" /></a>
+    </div>
+<% end -%>
+
+<a target="_blank" href="http://www.lifesizer.com?uref=<%= @user_id %>"><img id="logo" src="/images/logo/patent_logo.png" border="0"/></a>
+<% if flash[:error] %>
+    <p id="flash_error"><%= flash[:error] %></p>
+<% else %>
+    <%= lifesize_image(@image) %>
+<% end %>
+<div id="ruler"></div>
+<img id="qmLeft" class="notlifesize" src="/images/icons/not_lifesize.png" width="65" height="65"/>
+<img id="qmRight" class="notlifesize" src="/images/icons/not_lifesize.png" width="65" height="65"/>

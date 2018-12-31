@@ -1,0 +1,47 @@
+<a><h3><%= link_to "Rails admin", rails_admin_path %></h3></a>
+
+<h2>Admin pages</h2>
+
+<ul>
+  <li><%= link_to 'Manage images', admin_images_path %></li>
+  <li><%= link_to 'User management', admin_users_path %></li>
+  <li><%= link_to 'Custom bookmarklets', custom_bookmarklets_path %></li>
+</ul>
+
+
+
+<h2>Demo utilities</h2>
+
+<ul>
+  <li><%= link_to 'Google search', :controller => 'google_search', :action => :index %></li>
+  <li><%= link_to 'LifeSizer widget demo', '/demo/widget_test.html' %></li>
+  <li><%= link_to 'GreaseMonkey demo script', '/demo/plugins/lifesizer.user.js' %></li>
+
+  <!-- li>  link_to 'RubyLane script', '/demo/plugins/rubylane.user.js' </li -->
+</ul>
+
+
+<h2>Embed examples and tests</h2>
+<ul>
+  <li><%= link_to 'LifeSizer embed options demo', '/demo/embed/index.html' %></li>
+</ul>
+
+
+<h2>Test Pages</h2>
+
+<ul>
+  <li><%= link_to 'device info', :action => :device_info %></li>
+  <li><%= link_to 'screen size test', :action => :screen_test %></li>
+  <li><%= link_to 'lifesize cookies', test_show_cookies_path(:who => 'peter') %></li>
+</ul>
+
+
+<h2>CloudFiles</h2>
+
+<ul>
+  <li><%= link_to 'Update viewer assets', :action => :update_image_cache %></li>
+  <li><%= link_to 'Update embed scripts', :action => :update_embed_cache %></li>
+  <li><%= link_to 'Update bookmarklet files', :action => :update_bookmarklet_files %></li>
+  <li><%= link_to 'Update shared WP/Rails assets', :action => :update_shared_files %></li>
+
+</ul>

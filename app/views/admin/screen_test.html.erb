@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+	    <style type="text/css">
+
+	html { height:100%; }
+	body { height: 100%; margin:0; padding:0; overflow:auto;	
+		   background-color: #ffffff; }   
+//	#flashContent { display:none; }
+
+	#coords {
+		position: relative;
+		font-size: 16px;
+		font-weight: bold;
+	}
+	#coords div {
+		position: absolute;
+	}
+
+	#screenWidth { top:45px; left:370px; color: #000000;}
+	#screenHeight { top:250px; left:15px; color: #000000;}
+
+	#availWidth { top:450px; left:320px; color: #760C7A;}
+	#availHeight { top:250px; left:80px; color: #760C7A;}
+
+	#innerWidth { top: 165px; left:	360px; color: #0F7024;}
+	#innerHeight { top:	260px; left: 210px; color: #0F7024;}
+
+	#windowWidth { top: 420px; left: 370px; color: #1325AA;}
+	#windowHeight { top: 240px; left: 635px; color: #1325AA;}
+
+	#browserZoom {
+		top: 		240px;
+		left:		330px;
+		font-size:  30px;
+		color: 		#0F7024;
+	}
+
+    .media-dpi-test {
+        display: none;
+    }
+
+	   </style>
+    <%= javascript_include_tag google_jquery, 'test/screen_test_require.js' %>
+
+    <script type="text/javascript">
+
+function innerDims() {
+    var myWidth = 0, myHeight = 0;
+    if (typeof (window.innerWidth) == 'number') {
+         myWidth = window.innerWidth;
+         myHeight = window.innerHeight;
+    } else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+         myWidth = document.documentElement.clientWidth;
+         myHeight = document.documentElement.clientHeight;
+    } else if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+         myWidth = document.body.clientWidth;
+         myHeight = document.body.clientHeight;
+    }
+    //console.log("x: " + myWidth + ", y: " + myHeight);
+    return { w: myWidth, h: myHeight };
+    /*
+	var winW, winH;
+	if (document.body && document.body.offsetWidth) {
+	 winW = document.body.offsetWidth;
+	 winH = document.body.offsetHeight;
+	}
+	if (document.compatMode == 'CSS1Compat' &&
+	    document.documentElement &&
+	    document.documentElement.offsetWidth ) {
+	 winW = document.documentElement.offsetWidth;
+	 winH = document.documentElement.offsetHeight;
+	}
+	if (window.innerWidth && window.innerHeight) {
+	 winW = window.innerWidth;
+	 winH = window.innerHeight;
+	}
+	return { w: winW, h: winH };
+	*/
+}
+
+/** 
+ * returns the outer dimensions of the current browser window. Note that this doesn't appear to work in IE
+ */
+function windowDims() {
+    return { w: window.outerWidth, h: window.outerHeight };
+}
+
+/** 
+ * returns the dimensions of the screen as reported by the JS layer. Note that in some browsers (FF, IE) this 
+ * isn't the actual true screen resolution, as it is adjusted if the browser is zoomed in or out. 
+ */
+function screenDims() {
+	return { w: screen.width, h: screen.height };
+}
+
+function availDims() {
+	return { w: screen.availWidth, h:screen.availHeight };
+}
+
+function getParameterByName(name) {
+  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+  var regexS = "[\\?&]" + name + "=([^&#]*)";
+  var regex = new RegExp(regexS);
+  var results = regex.exec(window.location.search);
+  if(results == null)
+    return "";
+  else
+    return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+var zoom = 1.0;
+var sd = new ScreenDetection();
+
+function updateValues() {
+	var screenDim = screenDims();
+	$('.screen_width').html(screenDim.w);
+	$('.screen_height').html(screenDim.h);
+
+	var trueScreenDim = sd.trueScreenRes();
+	$('.true_screen_width').html(trueScreenDim.w);
+	$('.true_screen_height').html(trueScreenDim.h);
+
+	var availDim = availDims();
+	$('.avail_width').html(availDim.w);
+	$('.avail_height').html(availDim.h);
+
+    var innerDim = innerDims();
+    $('.inner_width').html(innerDim.w);
+    $('.inner_height').html(innerDim.h);
+
+	var windowDim = windowDims();
+	$('.window_width').html(windowDim.w);
+	$('.window_height').html(windowDim.h);
+
+	$('#percZoomLevel').html(Math.round(zoom*10000)/100);
+    if (sd.canDetectZoom) {
+      $('.zoomLevel').html(zoom);
+    } else {
+      $('.zoomLevel').html('cannot detect');
+    }
+
+    $('.deviceDPI').html(screen.deviceXDPI + " x " + screen.deviceYDPI);
+    $('.logicalDPI').html(screen.logicalXDPI + " x " + screen.logicalYDPI);
+    $('.systemDPI').html(screen.systemXDPI + " x " + screen.systemYDPI);
+
+    $('.chromeZoom').html(window.outerWidth / window.innerWidth);
+
+    $('.media_query_ppi').html(sd.findPpi());
+
+
+}
+
+function checkInnerDimensions(expectedWidth, expectedHeight) {
+    var innerDim = innerDims();
+    var msg = '';
+    if (innerDim.w != expectedWidth) {
+        msg += "inner width is " + Math.abs(innerDim.w - expectedWidth) + " pixels " + ((innerDim.w > expectedWidth) ? "greater" : "smaller") +
+                " than expected width (" + expectedWidth + ")\n";
+    }
+    if (innerDim.h != expectedHeight) {
+        msg += "inner height is " + Math.abs(innerDim.h - expectedHeight) + " pixels " + ((innerDim.h > expectedHeight) ? "greater" : "smaller") +
+                " than expected height (" + expectedHeight + ")\n";
+    }
+    if (msg.length > 0) {
+        alert(msg);
+    } else {
+        alert("inner dimensions correct");
+    }
+}
+
+$(function() {
+
+	window.onresize = updateValues;
+	sd.watchZoom(function(obj) {
+        zoom = obj.zoom;
+		updateValues();
+	});
+    updateValues();
+
+    if (!sd.canDetectZoom) {
+        alert("unable to determine zoom level");
+    }
+
+    sd.watchScreenRes(function(width, height, init) {
+        if (!init)
+            alert('screen resolution has changed: ' + width + "x" + height);
+    });
+
+    var minScroll = 1000;
+    var maxScroll = 0;
+    $(document).mousewheel(function(event, delta) {
+        $('#cur_scroll').attr('value', delta);
+        var abs = Math.abs(delta);
+        if (abs > 0 && abs < minScroll) {
+            $('#min_scroll').attr('value', abs);
+            minScroll = abs;
+        }
+        if (abs > maxScroll) {
+            $('#max_scroll').attr('value', abs);
+            maxScroll = abs;
+        }
+    });
+    $('#resetButton').click(function() {
+        $('#max_scroll,#min_scroll,#cur_scroll').attr('value', '');
+        maxScroll = 0;
+        minScroll = 1000;
+    });
+
+    $('#openButton').click(function() {
+        var x = $('#resize_x').attr('value');
+        var y = $('#resize_y').attr('value');
+        var url = document.location.href + "?lsdebug=true&width=" + x + "&height=" + y;
+        LsLog.info("opening window with dimensions " + x + "x" + y);
+        LsWindow.open(url, x, y, { name: 'testwindow', scrollbars: true});
+        //window.open (url, "testwindow","toolbar=no,scrollbars=yes,location=no,menubar=no,resizable=yes,width=" + x + ",height=" + y);
+    });
+    $('#resizeButton').click(function() {
+        var x = parseInt($('#resize_x').attr('value'));
+        var y = parseInt($('#resize_y').attr('value'));
+        LsWindow.resizeTo(x,y);
+        LsLog.debug('resizing window to ' + x + "x" + y);
+        setTimeout(function() {
+            checkInnerDimensions(x,y);
+        }, 2000);
+    });
+
+    setTimeout(function() {
+        var i = innerDims();
+        LsLog.debug("inner dimensions: " + i.w + "x" + i.h);
+
+        var expectedInnerWidth = parseInt(getParameterByName('width'));
+        var expectedInnerHeight = parseInt(getParameterByName('height'));
+        if (expectedInnerWidth && expectedInnerHeight) {
+            checkInnerDimensions(expectedInnerWidth, expectedInnerHeight);
+        }
+    }, 1000);
+});
+
+   </script>
+  </head>
+  <body>
+    
+    <div id="coords">
+      <%= image_tag "test/mac_screen.png" %>
+
+	  <div id="screenWidth"  class="screen_width">?</div>
+	  <div id="screenHeight" class="screen_height">?</div>
+
+	  <div id="availWidth"  class="avail_width">?</div>
+	  <div id="availHeight" class="avail_height">?</div>
+
+   	  <div id="innerWidth"  class="inner_width">?</div>
+   	  <div id="innerHeight" class="inner_height">?</div>
+
+	  <div id="windowWidth"  class="window_width">?</div>
+	  <div id="windowHeight" class="window_height">?</div>
+	
+	  <div id="browserZoom" class="value">zoom: <span id="percZoomLevel">?</span>%</div>
+	</div>
+
+    <div>
+        <div style="float:left">
+            <span class="value">Your javascript reported screen dimensions are <span class="screen_width">?</span> x <span class="screen_height">?</span></span> <br/>
+           	<span class="value">Your true screen resolution is <span class="true_screen_width">?</span> x <span class="true_screen_height">?</span></span> <br/>
+           	<span class="value">Your available space is <span class="avail_width">?</span> x <span class="avail_height">?</span></span><br/>
+           	<span class="value">Your document dimensions are <span class="inner_width">?</span> x <span class="inner_height">?</span></span><br/>
+           	<span class="value">Your window dimensions are <span class="window_width">?</span> x <span class="window_height">?</span></span><br/>
+            <span class="value">Zoom level: <span class="zoomLevel">?</span></span><br/>
+            <span class="value">Screen PPI based on media query: <span class="media_query_ppi">?</span></span><br/>
+        </div>
+        <div style="float:left;margin-left:40px">
+            Window scroll:<br/>
+            <input type="text" id="min_scroll" style="width:50px"/> min scroll  <br/>
+            <input type="text" id="max_scroll" style="width:50px"/> max scroll <br/>
+            <input type="text" id="cur_scroll" style="width:50px"/> current scroll<br/>
+            <input type="button" value="reset" id="resetButton"/>
+        </div>
+    </div>
+    <div style="clear:both"/>
+
+    <br/>
+    <div>
+        <div style="float:left">
+            <h3>windows</h3>
+            <span class="value">Device DPI <span class="deviceDPI">?</span></span><br/>
+            <span class="value">Logical DPI <span class="logicalDPI">?</span></span><br/>
+            <span class="value">System DPI <span class="systemDPI">?</span></span><br/>
+        </div>
+        <div style="float:left;margin-left:40px">
+            <p>Resize/open window: <br/>
+            <input type="text" id="resize_x" style="width:50px"/> width
+            <input type="text" id="resize_y" style="width:50px"/> height <br/>
+            <input type="button" value="open in popup" id="openButton"/>
+            <input type="button" value="resize" id="resizeButton"/></p>
+        </div>
+    </div>
+    <div style="clear:both"/>
+
+    <br/>
+    <span class="value">chrome zoom calc <span class="chromeZoom">?</span></span><br/>
+  </body>
+</html>
+

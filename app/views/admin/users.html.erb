@@ -1,0 +1,22 @@
+
+<table border="2">
+  <tr height="40">
+    <th></th>
+    <th><strong>email</strong></th>
+    <th><strong>created</strong></th>
+    <th><strong>plan</strong></th>
+    <th><strong>options</strong></th>
+  </tr>
+  <% @users.reverse.each do |user| %>
+  <tr height="30">
+    <td width="40"><%= button_to(">", :action => 'become_user', :user_id => user.id) %></td>
+    <td><% style = (current_user == user) ? 'style="color:blue;"' : '' %>
+        <span <%= raw style %> ><%= user.email%></span>
+    </td>
+    <td width="130px"><%= user.created_at.to_formatted_s(:short)%></td>
+    <td width="50"><%= AccountOption::PLANS[user.plan] %></td>
+    <td><%= link_to("options", :action => :options, :id => user.id) %></td>
+  </tr>
+  <% end %>
+</table>
+

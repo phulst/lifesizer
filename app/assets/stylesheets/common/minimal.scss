@@ -1,0 +1,26 @@
+// minimal site CSS for pages that do not use main theme
+
+//
+// BEGIN BOLDER STYLES
+html { min-height:100% }
+// body { font-family:'Lucida Sans Unicode', 'Lucida Grande', Tahoma, Arial, san-serif; min-width:990px; font-size:62.5% }
+body { font-family:'Lucida Sans Unicode', 'Lucida Grande', Tahoma, Arial, san-serif; font-size:62.5% }
+p, li, address { color:#696969; font-size:1em; line-height:2em }
+p { margin:3px 0 8px }
+a { text-decoration:none; color:#397493 }
+a:hover { text-decoration:none }
+/*h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color:#397493 }  */
+h1, h2, h3, h4, h5, h6 { font-weight:normal; color:#535252; padding:0 }
+h1 { font-size:2.571em }
+h2 { font-size:2.354em }
+h3 { font-size:2.1em }
+h4 { font-size:1.8em }
+h5 { font-size:1.5em }
+h6 { font-size:1.2em }
+ul { margin-left:40px; margin-bottom:20px }
+i, em { font-style:italic }
+strong { font-weight:bold }
+img.icon { float:left; margin:0 15px 10px 0 !important; border:0 !important; padding:0 !important }
+.inner { width:970px; margin:0 auto }
+.clear {height:0px;overflow:hidden;margin:0px;clear:both;}
+

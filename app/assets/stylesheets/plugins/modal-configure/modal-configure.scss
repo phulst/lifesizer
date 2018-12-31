@@ -1,0 +1,139 @@
+/*
+ * Copyright (c) 2012 LifeSizer, Inc. - All Rights Reserved.
+ * Author: Peter Hulst
+ *
+ * This stylesheet is used in the configure bookmarklet
+ */
+@import "../../mixins";
+@import "../../globals";
+
+#ls-configure {
+  position:     absolute;
+  /*z-index:      5; */
+  margin:       0;
+  padding:      0;
+
+  left:         6px;
+  right:        6px;
+  top:          46px;
+  bottom:       4px;
+
+  canvas {
+    z-index: 10;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
+  .lifesize {
+    position:   absolute;
+    display:    none;
+    /* z-index:    -15; */
+    top:        0px;
+    left:       0px;
+    overflow:   hidden;
+    @include    unselectable;
+  }
+
+  #ls-loading-img {
+    position:           absolute;
+    width:              100%;
+    height:             100%;
+    background-image:   url(/images/icons/progress.gif);
+    background-repeat:  no-repeat;
+    background-position:center;
+  }
+
+  /** input form */
+  #ls-input-dialog {
+    &.ls-input-minimal {
+      height:         85px;
+    }
+    &.ls-input-full {
+      height:         180px;
+    }
+    display:        none;
+    position:       absolute;
+    width:          340px;
+    bottom:         10px;
+    left:           5px;
+    background-color:#d0d0d0;
+    padding:        10px;
+    text-align:     left;
+    font-family:    $fontFamily;
+    font-size:      13px;
+    color:          #ffffff;
+    z-index:        1100;
+
+    @include rounded(10px);
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(40,40,40);
+    /* RGBa with 0.6 opacity */
+    background: rgba(40,40,40, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#bb000000, endColorstr=#bb000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#bb000000, endColorstr=#bb000000)";
+
+    form {
+      label {
+        font-family:    $fontFamily;
+        color:          #ffffff;
+        display:        inline;
+      }
+      input[type=text] {
+        color:          #000;
+        margin-top:     2px;
+        padding:        2px;
+      }
+      select {
+        color:          #000;
+        font-size:      12px;
+      }
+      #ls-size-input {
+        width:          50px;
+        margin-right:   5px;
+      }
+      p {
+        margin:         0px;
+        margin-bottom:  2px;
+      }
+      #ls-name-field {
+        width:          320px;
+      }
+      #ls-reference-field {
+        width:          320px;
+      }
+      #ls-form-button {
+        width:          100%;
+        height:         100%;
+      }
+      #ls-form-button input {
+        float:          right;
+        margin-left:    5px;
+      }
+    }
+  }
+
+  #ls-arr-msg {
+    display:          none;
+    position:         absolute;
+    background-color: white;
+    border:           1px solid black;
+    height:           24px;
+    z-index:          1000;
+    @include rounded(5px);
+
+    #ls-size-label {
+      position:       relative;
+      float:          left;
+      height:         20px;
+      color:          black;
+      margin:         2px 5px 3px 5px;
+      font-family:    $fontFamily;
+      font-size:      16px;
+      padding:        2px;
+    }
+  }
+}
+

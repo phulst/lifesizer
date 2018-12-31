@@ -1,0 +1,31 @@
+
+<h2>Welcome!</h2>
+
+<h6>Here are some links for you to get started</h6>
+
+<br/>
+
+<% if has_demo_plugin %>
+<h4>LifeSizer demo plugin</h4>
+Make sure to use the Google Chrome browser, and install the plugin by clicking the following link:
+<%= link_to(demo_plugin_name, demo_plugin_url) %>
+<% end %>
+
+<h4>Your LifeSizer images</h4>
+<ul>
+    <li><%= link_to "My Images", images_user_path %></li>
+    <li><%= link_to 'Add a LifeSizer image', new_image_path %></li>
+</ul>
+
+<h4>LifeSizer on your website</h4>
+<ul>
+  <li><%= link_to 'Embed code and instructions', embed_instructions_path %></li>
+<% if @has_custom_bookmarklet %>
+  <li><%= link_to 'Bookmarklet installation instructions', account_bookmarklet_path %></li>
+<% end %>
+</ul>
+
+<h4>Your Account</h4>
+<ul>
+  <li><%= link_to "Change your email or password", edit_user_registration_path %></li>
+</ul>

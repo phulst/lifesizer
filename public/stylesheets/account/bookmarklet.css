@@ -1,0 +1,11 @@
+#bm_arrow {
+  position: absolute;
+  left: 550px;
+  top: -280px; }
+
+.bm_steps li {
+  font-size: 16px;
+  font-weight: bold; }
+  .bm_steps li a {
+    font-size: 20px;
+    margin-left: 30px; }

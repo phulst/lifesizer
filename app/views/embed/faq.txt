@@ -1,0 +1,45 @@
+
+
+General information
+
+Q. How does lifesizer work?
+A.
+
+Q. So What's the point of showing things in true size?
+A.
+
+
+Q. How do I submit an image for LifeSize display?
+
+
+Q. What resolution images do I need to submit for LifeSize display?
+A. it depends.
+
+Q. Where can I find LifeSize images on the web?
+A.
+
+
+
+
+Embeddable LifeSizer views
+
+
+Q. What happens if I exceed my monthly quota for LifeSize views?
+A. When you've received your monthly quota, the lifesizer popup window will no longer display any of your images
+but will display an informational message instead.
+
+Q. Help! I've reached my monthly quota and LifeSize images are no longer displaying. How do I increase my quota?
+A.
+
+Q. How can I find out how many times my LifeSize images have been viewed in the past n days?
+A.
+
+
+LifeSizer for your Business
+
+Q. How do LifeSize images help my customers?
+
+
+Q. I''m interested in using LifeSizer but have <insert huge number> images in my catalog. Am I going to have to
+add and calibrate these one by one?
+A.

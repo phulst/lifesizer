@@ -1,0 +1,81 @@
+@import "../globals";
+@import "../mixins";
+
+/** base style for buttons */
+.button {
+  font-family:      $fontFamily;
+  border:           none;
+  display:          inline;
+  color:            white;
+  font-size:        14px;
+  font-weight:      500;
+  text-shadow:      0px -1px 0px #124d84;
+  padding:          5px 10px 8px 10px;
+  margin:           10px;
+  cursor:           pointer;
+  @include rounded(3px);
+
+  &:hover {
+    color:            white;
+  }
+}
+
+.blue-button {
+  @extend .button;
+  background-image: linear-gradient(bottom, rgb(1,111,221) 43%, rgb(0,149,255) 91%);
+  background-image: -o-linear-gradient(bottom, rgb(1,111,221) 43%, rgb(0,149,255) 91%);
+  background-image: -moz-linear-gradient(bottom, rgb(1,111,221) 43%,rgb(0,149,255) 91%);
+  background-image: -webkit-linear-gradient(bottom, rgb(1,111,221) 43%, rgb(0,149,255) 91%);
+  background-image: -ms-linear-gradient(bottom, rgb(1,111,221) 43%,rgb(0,149,255) 91%);
+  background-image: -webkit-gradient(
+       linear,
+       left bottom,
+       left top,
+       color-stop(0.43, rgb(1,111,221)),
+       color-stop(0.91, rgb(0,149,255))
+  );
+  background-color: #016fdd;
+  /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#016fdd, endColorstr=#0095ff)"; */
+}
+
+.gray-button {
+  @extend .button;
+  background-image: linear-gradient(bottom, rgb(69,69,69) 11%, rgb(87,87,87) 91%);
+  background-image: -o-linear-gradient(bottom, rgb(69,69,69) 11%, rgb(87,87,87) 91%);
+  background-image: -moz-linear-gradient(bottom, rgb(69,69,69) 11%, rgb(87,87,87) 91%);
+  background-image: -webkit-linear-gradient(bottom, rgb(69,69,69) 11%, rgb(87,87,87) 91%);
+  background-image: -ms-linear-gradient(bottom, rgb(69,69,69) 11%, rgb(87,87,87) 91%);
+
+  background-image: -webkit-gradient(
+       linear,
+       left bottom,
+       left top,
+       color-stop(0.11, rgb(69,69,69)),
+       color-stop(0.91, rgb(87,87,87))
+  );
+  background-color: #454545;
+}
+
+/** base style for large buttons */
+.large-button {
+  @include rounded(8px);
+  @include shadow;
+
+  font-weight:      bold;
+  font-size:        1.2em;
+  padding:          15px 40px 15px 40px;
+  text-decoration:  none;
+  &:hover {
+    text-decoration:  underline;
+  }
+}
+
+.large-blue-button {
+  @extend .blue-button;
+  @extend .large-button;
+}
+
+.large-gray-button {
+  @extend .gray-button;
+  @extend .large-button;
+}

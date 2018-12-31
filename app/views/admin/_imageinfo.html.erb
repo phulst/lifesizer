@@ -1,0 +1,7 @@
+
+Title: <%= image.name %><br/>
+Added: <%= distance_of_time_in_words(Time.now, image.created_at) %> ago <br/>
+By: <%= image.user.email %><br/>
+Source: <%= image.source || '' %><br/>
+Featured: <%= (image.featured == 1) ? "yes" : "no" %><br/>
+Private: <%= image.private ? "yes" : "no" %>

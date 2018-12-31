@@ -1,0 +1,57 @@
+
+<% title "Calibrate your image" %>
+
+<div class="stretchedToBrowserWindow">
+  <h2>Calibrate your image</h2>
+
+  <!-- dialog contents -->
+  <div id="dialogs" style="display:none">
+    <div id="initMsg">
+      Please click and drag on any part of the image to draw a line for which you know the actual dimensions.
+      (ie. if you know the width, draw a line from the left edge to the right edge of the object in your image)
+    </div>
+    <div id="sizePrompt">
+      <p>Please tell us the actual length of the arrow you've drawn, in inches or centimeters.</p>
+      <input type="text" id="arrowSize" name="arrowSize" size="5"/>
+      <select name="unit">
+        <option value="in">inches</option>
+        <option value="cm">cm</option>
+        <option value="mm">mm</option>
+      </select>
+    </div>
+  </div>
+
+  <%= form_for @image, :url => images_create_complete_path(@image), :html => {:multipart => true, :class => 'lsform' } do |f| %>
+    <%= f.hidden_field :upload_cache %>
+    <%= f.hidden_field :original_url %>
+    <%= f.hidden_field :page_url %>
+    <%= f.hidden_field :width %>
+    <%= f.hidden_field :height %>
+    <%= f.hidden_field :medium_width %>
+    <%= f.hidden_field :medium_height %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :ref %>
+    <%= f.hidden_field :input_length %>
+    <%= f.hidden_field :unit %>
+    <!-- the following are not model properties, so use regular input fields -->
+    <input type="hidden" id="arrow_start" name="arrow_start"/>
+    <input type="hidden" id="arrow_end" name="arrow_end"/>
+    <input type="hidden" id="arrow_length" name="arrow_length"/>
+    <input type="hidden" id="render_width" name="render_width"/>
+    <input type="hidden" id="render_height" name="render_height"/>
+  <% end %>
+
+  <div id="toolbar">
+    <div class="text">zoom out</div>
+    <div id="slider"></div>
+    <div class="text">zoom in</div>
+    <div class="navButton"><button id="finishButton">finish</button></div>
+    <div class="navButton"><button id="backButton">go back</button></div>
+  </div>
+
+  <div id="imageContainer">
+    <%= lifesize_new_image(@image, @render_width, @render_height, @scale, :id => 'mainLifeSizeImg' ) %>
+    <div id="arrMsg" style="display:none"><div id="sizeLabel"></div></div>
+  </div>
+</div>
+

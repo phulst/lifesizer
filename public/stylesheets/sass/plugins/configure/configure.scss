@@ -1,0 +1,107 @@
+@import "mixins";
+
+#ls-configure {
+  position:     relative;
+  z-index:      5;
+  margin:       0;
+  padding:      0;
+  width:        370px;  /** initial (inner) dimensions 350x300 */
+  height:       300px;
+  overflow:     hidden;
+
+  canvas {
+    z-index: 10;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
+  .lifesize {
+    position:   absolute;
+    display:    none;
+    /* z-index:    -15; */
+    top:        0px;
+    left:       0px;
+    overflow:   hidden;
+    @include    unselectable;
+  }
+
+  #ls-loading-img {
+    position:           absolute;
+    width:              100%;
+    height:             100%;
+    background-image:   url(/images/icons/progress.gif);
+    background-repeat:  no-repeat;
+    background-position:center;
+  }
+
+  /** input form */
+  #ls-info-dialog {
+    display:        none;
+    position:       absolute;
+    width:          340px;
+    height:         150px;
+    bottom:         10px;
+    left:           5px;
+    background-color:#d0d0d0;
+    padding:        10px;
+    font-family:    'helvetica';
+    font-size:      13px;
+    color:          #ffffff;
+    z-index:        1100;
+
+    @include rounded(10px);
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(40,40,40);
+    /* RGBa with 0.6 opacity */
+    background: rgba(40,40,40, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99FFFFFF, endColorstr=#99FFFFFF)";
+
+    form {
+      #ls-size-input {
+        width: 50px;
+      }
+      p {
+        margin: 0px;
+        margin-bottom: 5px;
+      }
+      #ls-name-field {
+        width: 320px;
+      }
+      #ls-reference-field {
+        width: 250px;
+      }
+      #ls-form-button {
+        width:  100%;
+      }
+      #ls-form-button input {
+        float:  right;
+      }
+    }
+  }
+
+  #ls-arr-msg {
+    display:          none;
+    position:         absolute;
+    background-color: white;
+    border:           1px solid black;
+    height:           24px;
+    z-index:          1000;
+    @include rounded(5px);
+
+    #ls-size-label {
+      position:       relative;
+      float:          left;
+      height:         20px;
+      color:          black;
+      margin:         2px 5px 3px 5px;
+      font-family:    'helvetica';
+      font-size:      16px;
+      padding:        2px;
+    }
+  }
+}
+

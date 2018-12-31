@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">	
+    <head>
+        <title></title>         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style type="text/css" media="screen"> 
+			html, body	{ height:100%; }
+			body { margin:0; padding:0; overflow:auto; text-align:center; 
+			       background-color: #ffffff; }   
+			#flashContent { display:none; }
+        </style>
+		
+        
+		
+	<body>	
+		<h1>Hello World</h1>
+		
+		<div>Here comes your content.</div>
+		<iframe src="http://blog.sebastian-martens.de/2009/12/how-to-detect-the-browser-zoom-level-change-browser-zoo/" width="800" height="400"></iframe>
+        
+        
+        <script type="text/javascript" src="swfobject.js"></script>
+		<script type="text/javascript" src="swfZoomDetection.js"></script>
+   	<script type="text/javascript">
+		swfZoomDetection.init({
+			'onZoomChange': function(obj){ alert(obj.scale) },
+			'getInitIfOne': true,
+			'initCallOnly': false,
+			'frameRate': 25
+		});
+	</script>
+   </body>
+   
+
+		
+</html>

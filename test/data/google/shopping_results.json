@@ -1,0 +1,975 @@
+{
+ "kind": "shopping#products",
+ "etag": "\"czKOfew9E3svi7vOBQ3vsAgGZzo/GlEyb4Vvbyyc5BwL5twRs0Og2Vw\"",
+ "id": "tag:google.com,2010:shopping/products",
+ "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products?country=US&alt=json&q=tissot+watch&startIndex=1&maxResults=25",
+ "nextLink": "https://www.googleapis.com/shopping/search/v1/public/products?country=US&alt=json&q=tissot+watch&startIndex=26&maxResults=25",
+ "totalItems": 10914,
+ "startIndex": 1,
+ "itemsPerPage": 25,
+ "currentItemCount": 25,
+ "items": [
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/9599149064982395749",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/9599149064982395749?alt=json",
+   "product": {
+    "googleId": "9599149064982395749",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-09-11T15:08:00.000Z",
+    "modificationTime": "2011-12-01T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Mens Stainless Steel Bracelet T17158642",
+    "description": "A splash of deep navy gives this sophisticated mens watch from Tissot an upbeat, sporty flair. Silvertone stainless steel bracelet and round case. Round blue dial with three subdials, date window, logo and numerical indices. Quartz movement. Water resistant to 200 meters. Two-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=370766&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499216500",
+    "gtins": [
+     "00758499216500"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 525.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/1/optimized/518111_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/985830749113629730",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/985830749113629730?alt=json",
+   "product": {
+    "googleId": "985830749113629730",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-10-10T15:08:00.000Z",
+    "modificationTime": "2011-11-29T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Black Dial Stainless Steel T17158652",
+    "description": "About time. An every day watch with modern appeal. Stainless steel bracelet with sapphire glass and black chronograph dial. Date and 38-month features Quartz movement. Water resistant to 200 meters. Screw down crown. 2-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=256987&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499216517",
+    "gtins": [
+     "00758499216517"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 525.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/7/optimized/321427_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/4019/16201450368790643179",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/4019/gid/16201450368790643179?alt=json",
+   "product": {
+    "googleId": "16201450368790643179",
+    "author": {
+     "name": "Jomashop.com",
+     "accountId": "4019"
+    },
+    "creationTime": "2011-05-25T02:41:15.000Z",
+    "modificationTime": "2011-12-01T02:51:40.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot PRC200 Mens Watch T17.1.586.52",
+    "description": "Stainless steel case with a stainless steel bracelet. Fixed stainless steel bezel. Black dial with luminous hands and index hour markers. Minute markers. arabic numerals mark the 3, 9 and 12 o'clock position. Minute markers. Tachymeter scale around the outer rim. Luminiscent hands and dial markers. Date display at the 4 o'clcok position. Chronograph - three sub-dials displaying- 60 seconds, 30 minutes and 1/10th of a second. Quartz movement. Scratch resistant sapphire crystal. Solid case back. Case diameter: 39 mm. Case thickness: 12 mm. Folding deployment clasp. Water resistant at 200 meters / 660 feet. Functions: hours, minutes, seconds, date, chronograph, tachymeter. Tissot PRC200 Mens Watch T17.1.586.52.",
+    "link": "http://jomashop.com/tissot-t17-1-586-52.html?ref=frgle",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "07611608216514",
+    "gtins": [
+     "07611608216514"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 325.35,
+      "tax": 0.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://jomajewelry.com/no_watermark_all/tissot/TIST17158652.JPG"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/1272666/1518776312096414171",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/1272666/gid/1518776312096414171?alt=json",
+   "product": {
+    "googleId": "1518776312096414171",
+    "author": {
+     "name": "Newegg.com",
+     "accountId": "1272666"
+    },
+    "creationTime": "2011-10-29T04:02:48.000Z",
+    "modificationTime": "2011-11-30T05:02:35.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot watch T0354071605101",
+    "description": "Stainless steel case with a black leather bracelet with contrast sticking. Fixed stainless steel bezel. Black dial with silver-tone hands and stick hour markers. Minure markers around the outer rim. Date displys at the 6 o'clock position. Day of the week displayed at the 12 o'clock position. Automatic movement. Scratch resistant sapphire crystal. Case diameter: 39 mm. Case thickness: 10.8 mm. Tang clasp. Water resistant at 100 meters / 330 feet. Tissot Couturier Mens Watch Automatic T0354071605101. Gift Box: Gift Box Color: Multi-Color Gender: Unisex Age: Adult Condition: New",
+    "link": "http://www.newegg.com/Product/Product.aspx?Item=9SIA01A01S1264&nm_mc=OTC-Froogle5&cm_mmc=OTC-Froogle5-_-Watches-_-Tissot-_-9SIA01A01S1264",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499232319",
+    "gtins": [
+     "00758499232319"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 486.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://images10.newegg.com/NeweggImage/productimage/A043_1_20110201_df037bd6-8229-40dd-9855-354b3cb63660250146.jpg"
+     },
+     {
+      "link": "http://images10.newegg.com/NeweggImage/productimage/A01A_1_20110711_4003126.jpg"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/11522004190412846967",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/11522004190412846967?alt=json",
+   "product": {
+    "googleId": "11522004190412846967",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-09-11T15:08:00.000Z",
+    "modificationTime": "2011-12-01T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Mens Chronograph Stainless Steel Bracelet T0394171105700",
+    "description": "Make time fly. This multifunctional Tissot watch features a stainless steel bracelet and round case. Black chronograph dial with logo, date window, three subdials, silvertone stick indices and numerals at four oclock, eight oclock and twelve oclock. Quartz movement. Water resistant to 100 meters. Two-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=441677&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499232814",
+    "gtins": [
+     "00758499232814"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 495.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/4/optimized/713074_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/2890843/12166916630419654647",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/2890843/gid/12166916630419654647?alt=json",
+   "product": {
+    "googleId": "12166916630419654647",
+    "author": {
+     "name": "Overstock.com",
+     "accountId": "2890843"
+    },
+    "creationTime": "2011-09-24T07:08:59.000Z",
+    "modificationTime": "2011-12-01T08:16:57.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Men's T-race Moto GP Stainless Steel Watch",
+    "description": "This sport inspired Tissot men's T-Race Moto GP collection watch is made with solid stainless steel and carbon fiber. Three subdials, a black dial and a Swiss quartz movement highlight this watch. Case: Stainless steel, carbon fiber Caseback: Stainless steel snap-down Bezel: Stainless steel Dial: Black Hands: Stainless steel, luminescent Markers: Stainless steel, luminescent Subdials: Three (3), millisecond, seconds, minutes Calendar: Date at 4 o'clock Additional dial features: Tachymeter Strap: Black rubber Clasp: Push-button deployment Crystal: Sapphire Crown: Push/pull Movement: Swiss quartz Water resistance: Water resistant 100 meters/330 feet Case measurements: 42 mm wide x 42 mm long x 12 mm thick Strap/Bracelet measurements: 20 mm wide x 7.5 inches long Box measurements: 5 inches wide x 7 inches long x 4 inches high Model: T0274171705100 Click here to view our Watch Sizing Guide . All measurements are approximate and may vary slightly from the listed dimensions. Men's watch bands can be sized to fit 7.5-inch to 8.5-inch wrists.",
+    "link": "http://www.overstock.com/Jewelry-Watches/Tissot-Mens-T-race-Moto-GP-Stainless-Steel-Watch/6217299/product.html?cid=123620",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "07611608240458",
+    "gtins": [
+     "07611608240458"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 328.14,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://ak1.ostkcdn.com/images/products/77/548/L13862458.jpg"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/1272666/14733474355308366217",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/1272666/gid/14733474355308366217?alt=json",
+   "product": {
+    "googleId": "14733474355308366217",
+    "author": {
+     "name": "Newegg.com",
+     "accountId": "1272666"
+    },
+    "creationTime": "2011-10-01T12:06:53.000Z",
+    "modificationTime": "2011-12-01T13:02:57.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot watch T0474201105100",
+    "description": "Sport watch, Swiss quartz movement, Positive (dark-on-light) numbers, Multifunction featuring 1/100-second digital chronograph (elapsed time/ split time measurements), Countdown timer, Digital altimeter scale, Digital thermometer, Alarm mode, 12/24-hour formats, Dual time, Luminescent white sword hands, Luminescent square markers and white indices mark surrounding minute track, Digital date display, Black dial with luminescent touch-sensitive panels and digital grey display panel, Brushed silver-tone stainless steel bracelet with adjustable links and push-button-clasp, Bidirectional brushed stainless steel bezel with engraved compass, Brushed silver-tone stainless steel round case, Brushed steel selector buttons, Stainless steel screw-down caseback, Tactile sapphire crystal, 100 meters/330 feet water resistant Color: Multi-Color Gender: Unisex Age: Adult Condition: New",
+    "link": "http://www.newegg.com/Product/Product.aspx?Item=9SIA0430008DN1&nm_mc=OTC-Froogle5&cm_mmc=OTC-Froogle5-_-Watches-_-Tissot-_-9SIA0430008DN1",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499234016",
+    "gtins": [
+     "00758499234016"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 542.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://images10.newegg.com/NeweggImage/productimage/A043_1_20110201_5496381a-1b5d-4e08-b161-bc39fe64e34d250175.jpg"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/4019/7142559305008116816",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/4019/gid/7142559305008116816?alt=json",
+   "product": {
+    "googleId": "7142559305008116816",
+    "author": {
+     "name": "Jomashop.com",
+     "accountId": "4019"
+    },
+    "creationTime": "2011-01-25T05:40:42.000Z",
+    "modificationTime": "2011-12-02T02:33:29.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot PRC200 T-Sport Mens Watch T17.1.586.42",
+    "description": "Stainless steel case with a stainless steel bracelet. Fixed stainless steel bezel. Blue dial with luminous silver-tone hands and index hour marker., Arabic numerals at the 3, 9 and 12 o'clock positions hour markers. Arabic numerals at the 3, 9 and 12 o'clock positions, Minute markers. Tachymeter scale around the outer rim. Luminiscent hands and dial markers. Date displays at the 4 o'clock position. Chronograph - three sub-dials displaying: 60 seconds, 30 minutes and 1/10th of a second. Quartz movement. Scratch resistant sapphire crystal. Screw down crown. Solid case back. Case diameter: 40 mm. Case thickness: 12 mm. Push button deployment clasp. Water resistant at 200 meters / 660 feet. Functions: hours, minutes, seconds, date, chronograph, tachymeter. Tissot PRC200 T-Sport Mens Watch T17.1.586.42.",
+    "link": "http://jomashop.com/tissot-prc200-mens-watch-t17-1-586-42.html?ref=frgle",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "07611608216507",
+    "gtins": [
+     "07611608216507"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 339.37,
+      "tax": 0.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://jomajewelry.com/no_watermark_all/tissot/TIST17158642.JPG"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/2677551/17077548849347138101",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/2677551/gid/17077548849347138101?alt=json",
+   "product": {
+    "googleId": "17077548849347138101",
+    "author": {
+     "name": "Sears",
+     "accountId": "2677551"
+    },
+    "creationTime": "2011-09-19T22:28:42.000Z",
+    "modificationTime": "2011-12-01T01:17:32.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Women's Prs516 Watch #t0214142605100",
+    "description": "Swiss automatic movement, Sport watch, Chronograph, Silver-tone luminous hands and markers, White indices on outer ring, Analog date display, Black stainless steel tachymetre bezel is embossed with white numbers and indices, Brushed/polished stainless steel case, Polished stainless steel crown, selector buttons and see-through caseback, Sapphire crystal, 100 meters/330 feet water resistant",
+    "link": "http://www.sears.com/shc/s/p_10153_12605_SPM4971289501P?sid=IDx20101019x00001a&ci_src=14110944&ci_sku=SPM2388782602",
+    "brand": "Tissot",
+    "condition": "new",
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 797.5,
+      "shipping": 6.95,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://c.shld.net/rpx/i/s/pi/mp/6880/2388782602p?src=http%3A%2F%2F206.127.31.102%2Fimages%2Fproducts%2Fmedium%2FT0214142605100.jpg&d=7524af6cdfa39b4cc66ed61ee29fd4425f0bf58c"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/13127499687993262263",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/13127499687993262263?alt=json",
+   "product": {
+    "googleId": "13127499687993262263",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-09-11T15:08:00.000Z",
+    "modificationTime": "2011-12-01T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Mens Swiss Chronograph T-Race Black Rubber Strap T048417",
+    "description": "A serious watch for the sport enthusiast, Tissots T-Race hits the mark. Black rubber strap and round stainless steel case. Black chronograph dial features tachymeter scale at outer rim, three subdials, numerals at twelve, six and nine oclock, stick indices, magnified date window at three oclock, logo and red accents. Swiss movement. Water resistant to 100 meters. Two-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=509923&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499235723",
+    "gtins": [
+     "00758499235723"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 650.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/9/optimized/832299_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/3426224611223366538",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/3426224611223366538?alt=json",
+   "product": {
+    "googleId": "3426224611223366538",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-09-11T15:08:00.000Z",
+    "modificationTime": "2011-11-30T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Mens Chronograph Stainless Steel Bracelet T0244171105100",
+    "description": "Style with velocity, by Tissot. This watch features a stainless steel bracelet and round case. Textured black chronograph dial with silvertone stick indices, logo, date window and three subdials. Swiss made. Quartz movement. Water resistant to 100 meters. Two-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=441667&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499233064",
+    "gtins": [
+     "00758499233064"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 675.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/3/optimized/713063_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/17697711890324142109",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/17697711890324142109?alt=json",
+   "product": {
+    "googleId": "17697711890324142109",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-09-11T15:08:00.000Z",
+    "modificationTime": "2011-12-01T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Mens Black Leather Strap T0144101605700",
+    "description": "Time to go luxe. This Tissot watch features a black leather strap with white stitching and stainless steel case. Black dial with logo, date window at 3 oclock and silvertone numerals at 12, 6 and 9 oclock. Quartz movement. Water resistant to 200 meters. Two-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=320323&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499227551",
+    "gtins": [
+     "00758499227551"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 395.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/9/optimized/443549_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/1161353/16377504604931471933",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/1161353/gid/16377504604931471933?alt=json",
+   "product": {
+    "googleId": "16377504604931471933",
+    "author": {
+     "name": "Buy.com",
+     "accountId": "1161353"
+    },
+    "creationTime": "2011-10-23T06:14:12.000Z",
+    "modificationTime": "2011-12-01T18:02:37.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot T-Race MotoGP 2009 Limited Edition Mens Watch T027.417.17.051.00",
+    "description": "With a detailed facade displaying multi-functional subdials, this Tissot chronograph is style built with precision.",
+    "link": "http://clickfrom.buy.com/default.asp?adid=17902&sURL=http%3A%2F%2Fwww.buy.com%2Fpr%2Fproduct.aspx%3Fsku%3D211411311%26sellerid%3D17112492",
+    "brand": "Tissot",
+    "condition": "new",
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 329.45,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://ak.buy.com/PI/0/500/211411311.jpg"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/1610983/16116810830701811554",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/1610983/gid/16116810830701811554?alt=json",
+   "product": {
+    "googleId": "16116810830701811554",
+    "author": {
+     "name": "Classybrand.com",
+     "accountId": "1610983"
+    },
+    "creationTime": "2008-12-09T06:28:51.000Z",
+    "modificationTime": "2011-11-30T11:23:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot watch - T17.1.586.52 PRC 200 T17158652 Mens",
+    "description": "Tissot watch - Tissot 'T17.1.586.52 watch with, Quartz Chrono Movement ETA G10.211, Sapphire Crystal, 13 mm, 200 Meters, 40 mm, Stainless steel, Three years warranty, Iluminating hands and markers",
+    "link": "http://www.classybrand.com/watches/watch_fs.asp?watch=3536&brand=Tissot&pid=T17.1.586.52",
+    "brand": "Tissot",
+    "condition": "new",
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 339.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://www.classybrand.com/watch_photo/Tissot/T17.1.586.52s.jpg"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/2890843/17762665337354856528",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/2890843/gid/17762665337354856528?alt=json",
+   "product": {
+    "googleId": "17762665337354856528",
+    "author": {
+     "name": "Overstock.com",
+     "accountId": "2890843"
+    },
+    "creationTime": "2011-11-08T09:06:28.000Z",
+    "modificationTime": "2011-12-01T09:01:58.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Men's PRC 200 Watch",
+    "description": "Men's watch has a silver dial and stainless steel bracelet for a classic look Timepiece features a Swiss quartz movement Tissot watch is the perfect accessory for a man's wardrobe Silver dial with luminous hands and hour markers Date at 3 o'clock Stainless steel case Stainless steel bracelet Swiss quartz movement Deployment clasp Sapphire crystal Water resistance: 200 meters (660 feet) Case: 41 mm wide x 10.5 mm thick Bracelet: 20 mm wide x 7 inches long Click here to view our Watch Sizing Guide . All measurements are approximate and may vary slightly from the listed dimensions. Men's watch bands can be sized to fit 7.5-inch to 8.5-inch wrists.",
+    "link": "http://www.overstock.com/Jewelry-Watches/Tissot-Mens-PRC-200-Watch/4488759/product.html?cid=123620",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499227506",
+    "gtins": [
+     "00758499227506"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 279.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://ak2.ostkcdn.com/images/products/L12436032.jpg"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/15176905071718138073",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/15176905071718138073?alt=json",
+   "product": {
+    "googleId": "15176905071718138073",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-09-11T15:08:00.000Z",
+    "modificationTime": "2011-12-01T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Mens Swiss T-Touch II Black Rubber Strap T0474201705100",
+    "description": "Tissot combines uncomplicated, rugged styling with the finest Swiss precision in this T-Touch II model. Black rubber strap and round stainless steel case. Turning bezel with cardinal directions and numerals in black. Black dial features numerals, stick indices, luminous hands, alarm, compass, thermometer, altimeter and meteorological trend indicator. Swiss movement. Water resistant to 100 meters. Two-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=509927&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499234023",
+    "gtins": [
+     "00758499234023"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 850.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/7/optimized/832297_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/12562361130219033131",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/12562361130219033131?alt=json",
+   "product": {
+    "googleId": "12562361130219033131",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-09-11T15:08:00.000Z",
+    "modificationTime": "2011-12-01T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Mens Chronograph Black Rubber Strap T0364171705701",
+    "description": "Durable, sporty style with incredible functionality by Tissot. This watch features a black rubber strap with orange accents and round stainless steel case. Black chronograph dial with logo, date window, orange accents, three subdials and numerals at eight oclock and twelve oclock. Quartz movement. Water resistant to 100 meters. Two-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=441674&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499232593",
+    "gtins": [
+     "00758499232593"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 450.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/1/optimized/713071_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/4762169/3583599243068778883",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/4762169/gid/3583599243068778883?alt=json",
+   "product": {
+    "googleId": "3583599243068778883",
+    "author": {
+     "name": "Certified Watch Store",
+     "accountId": "4762169"
+    },
+    "creationTime": "2009-10-01T22:22:07.000Z",
+    "modificationTime": "2011-12-01T02:00:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot T0134204405700 T-Touch Expert Mens Watch - Black Dial Stainless Steel Case Quartz Movement",
+    "description": "Tissot T0134204405700 TTouch Expert Mens Watch Black Dial Stainless Steel Case Quartz Movement Save on Tissot Watches for Mens. Guarantee high quality, and favorable price. Tissot TTouch Expert Mens Watches. Black dial. Stainless steel case. Touch screen, Alarm, Compass, Multifunction, Black hands with luminous accents, Luminous numbers and markers. Quartz movement. All of our watches are guaranteed brand new and authentic with all original parts, including the manufacturers box and all tags and documents. We do not sell refurbished, returns or replicated watches. Specification of Tissot T0134204405700 TTouch Expert Mens Watch Black Dial Stainless Steel Case Quartz Movement Brand Name: Tissot Part Number: TissotT0134204405700 Case material: Stainless Steel Band material: Stainless Steel Dial color: Black Movement: Quartz Water resistant depth: 100 Meters Warranty Type: Click here ...",
+    "link": "http://www.certifiedwatchstore.com/Tissot-T0134204405700-T-Touch-Expert-Mens-Watch-Black-Dial-Stainless-Steel-Case-Quartz-Movement-p.html",
+    "brand": "Tissot",
+    "condition": "new",
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 729.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://www.certifiedwatchstore.com/product_images/b/750/tissot_t0134204405700__61291_zoom.jpg"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/17359143326813911433",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/17359143326813911433?alt=json",
+   "product": {
+    "googleId": "17359143326813911433",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-09-11T15:08:00.000Z",
+    "modificationTime": "2011-12-01T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Mens Swiss PRC 200 Stainless Steel Bracelet T01441011047",
+    "description": "Vivid ocean-blue adds depth to this already stunning Tissot PRC 200 watch. Stainless steel bracelet and round case. Blue dial features numerals at twelve, six and nine oclock, date window at three oclock, luminous silvertone indices and hands and logo. Swiss movement. Water resistant to 200 meters. Two-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=509912&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499227513",
+    "gtins": [
+     "00758499227513"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 425.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/7/optimized/832287_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/1241012/6891395081207964487",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/1241012/gid/6891395081207964487?alt=json",
+   "product": {
+    "googleId": "6891395081207964487",
+    "author": {
+     "name": "IcedTime",
+     "accountId": "1241012"
+    },
+    "creationTime": "2011-10-26T18:11:21.000Z",
+    "modificationTime": "2011-12-01T05:11:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot watch - T035.407.36.051.00 Couturier Automatic T035.407.36",
+    "description": "Tissot watch - T035.407.36.051.00 Couturier Automatic T035.407.36",
+    "link": "http://icedtime.com/Tissot/11723-Tissot-watch-T0354073605100-Couturier-Automatic-T03540736.html",
+    "brand": "Tissot",
+    "condition": "new",
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 502.5,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://icedtime.com/assets/items_images__570x440__11723_lg.jpg"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/1272666/6236848378654161349",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/1272666/gid/6236848378654161349?alt=json",
+   "product": {
+    "googleId": "6236848378654161349",
+    "author": {
+     "name": "Newegg.com",
+     "accountId": "1272666"
+    },
+    "creationTime": "2011-11-01T20:02:50.000Z",
+    "modificationTime": "2011-12-01T13:02:57.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot watch T0091101105701",
+    "description": "T-Moments (Small Lady) - Casual watch, Three-hand Swiss quartz movement displaying polished silver-tone hour, minute and sweep seconds hands, Applied and polished silver-tone Arabic numbers and hour studs, Analog date display at 3, Polished black cushion-shaped bezel, Polished black stainless steel case enhanced with PVD coating, Recessed 'Tissot' crown, Stainless steel caseback, Sapphire crystal, 30 meters/100 feet water resistant Gift Box: Gift Box Movement: Quartz Display: Analog Date: Date Power: Battery Fastener: Double Locking Deployment Color: Multi-Color Gender: Female",
+    "link": "http://www.newegg.com/Product/Product.aspx?Item=9SIA0430008DA3&nm_mc=OTC-Froogle5&cm_mmc=OTC-Froogle5-_-Watches-_-Tissot-_-9SIA0430008DA3",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499230117",
+    "gtins": [
+     "00758499230117"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 409.29,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://images10.newegg.com/NeweggImage/productimage/A043_1_20110201_4a394ee3-9a17-4213-98c3-ef0fecf4ca84250047.jpg"
+     },
+     {
+      "link": "http://images10.newegg.com/NeweggImage/productimage/A01A_1_20110907_10804966.jpg"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/13675302790350185403",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/13675302790350185403?alt=json",
+   "product": {
+    "googleId": "13675302790350185403",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-09-11T15:08:00.000Z",
+    "modificationTime": "2011-12-01T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Mens Automatic Stainless Steel Bracelet T0384301105700",
+    "description": "Classically handsome, this automatic Tissot watch features a stainless steel bracelet and round case. Black textured dial with logo, day window, date window, silvertone stick indices and numerals at three oclock, six oclock and nine oclock. Automatic movement. Water resistant to 50 meters. Two-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=441676&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499231824",
+    "gtins": [
+     "00758499231824"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 675.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/3/optimized/713073_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/17334525595363783645",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/17334525595363783645?alt=json",
+   "product": {
+    "googleId": "17334525595363783645",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-09-11T15:08:00.000Z",
+    "modificationTime": "2011-12-01T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Mens Swiss T-Touch II Polished Titanium Bracelet T047420",
+    "description": "An absolutely stunning timepiece, the Tissot T-Touch II effortlessly takes you from the boardroom to the track. Watch crafted from polished titanium bracelet and case. Turning bezel with cardinal directions and numerals in black. Black carbon dial features numerals, stick indices, luminous hands, alarm, compass, thermometer, altimeter and meteorological trend indicator. Swiss movement. Water resistant to 100 meters. Two-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=509931&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499234054",
+    "gtins": [
+     "00758499234054"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 1025.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/8/optimized/832298_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/2638200827675373228",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/2638200827675373228?alt=json",
+   "product": {
+    "googleId": "2638200827675373228",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-10-21T15:08:00.000Z",
+    "modificationTime": "2011-11-29T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Womens Swiss Chronograph SRC 200 Danica Patrick Diamond",
+    "description": "Sport performance meets feminine style with this limited edition Danica Patrick collection watch by Tissot. PRC 200 timepiece crafted of white leather strap and round stainless steel case. Mother-of-pearl chronograph dial features 20 diamond accent dot markers, tachymeter scale at outer rim, orange numeral at seven oclock, minute track, date window at four oclock, luminous hour and minute hands, orange second hand, three subdials and logo at twelve oclock. Swiss quartz movement. Water resistant to 200 meters. Two-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=611853&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499238281",
+    "gtins": [
+     "00758499238281"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 895.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/6/optimized/1023506_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "shopping#product",
+   "id": "tag:google.com,2010:shopping/products/7866/6223772528637154717",
+   "selfLink": "https://www.googleapis.com/shopping/search/v1/public/products/7866/gid/6223772528637154717?alt=json",
+   "product": {
+    "googleId": "6223772528637154717",
+    "author": {
+     "name": "Macy's",
+     "accountId": "7866"
+    },
+    "creationTime": "2011-10-21T15:08:00.000Z",
+    "modificationTime": "2011-12-01T16:08:00.000Z",
+    "country": "US",
+    "language": "en",
+    "title": "Tissot Watch, Mens Swiss Chronograph PR 100 Stainless Steel Bracelet T",
+    "description": "A handsome sport watch that makes the grade. The PR 100 collection watch from Tissot is crafted of stainless steel bracelet and round case. Black dial features silver tone applied stick indices, minute track, numerals at twelve oclock, date window at three oclock, luminous three hands and logo. Swiss quartz movement. Water resistant to 100 meters. Two-year limited warranty.",
+    "link": "http://www.macys.com/catalog/product/index.ognc?ID=611859&cm_mmc=Google_Feed-_-1-_-23-_-MP123",
+    "brand": "Tissot",
+    "condition": "new",
+    "gtin": "00758499237000",
+    "gtins": [
+     "00758499237000"
+    ],
+    "inventories": [
+     {
+      "channel": "online",
+      "availability": "inStock",
+      "price": 425.0,
+      "shipping": 0.0,
+      "currency": "USD"
+     }
+    ],
+    "images": [
+     {
+      "link": "http://slimages.macys.com/is/image/MCY/products/2/optimized/1023512_fpx.tif?wid=300&fmt=jpeg&qlt=100"
+     }
+    ]
+   }
+  }
+ ],
+ "requestId": "0CNDg0tb24qwCFQOeRAod-xUAAA"
+}

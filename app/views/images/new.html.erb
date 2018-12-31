@@ -1,0 +1,63 @@
+
+<% content_for :head do %>
+  <%= javascript_include_tag 'images/new' %>
+  <%= stylesheet_link_tag 'images/new', :media => 'all' %>
+<% end %>
+
+<% title "Add a LifeSize image" %>
+
+<% if @has_custom_bookmarklet %>
+<h5>There'a a new and better way to add your images directly on <%= @api_key.hostname || 'your site' %>.<br/>
+  <%= link_to 'Click here', account_bookmarklet_path %> to view instructions.
+</h5><br/>
+<% end %>
+
+<h2>Add a LifeSize image</h2>
+
+<%= form_for @image, :html => {:multipart => true, :class => 'lsform'} do |f| %>
+
+  <%= render :partial => 'layouts/alert', :object => f.error_messages(:header_message => "Oops, That didn't work.", :header_tag => :h2,
+        :message => "You'll need to fix the following input fields:") if !f.error_messages.blank? %>
+
+  <div id="upload_section">
+
+    <div id="upload_url">
+      <span>Direct url to the image (jpg or png) to add to LifeSizer</span><br/>
+      <%= f.text_field :remote_upload_url, :size => nil %>
+    </div>
+    <div id="or">-OR-</div>
+
+    <div id="upload_file">
+      <span>if your image is not yet on the web, you can upload it here. &nbsp; <a href="#" class="suggest_tooltip">what makes a good LifeSize image?</a></span><br/>
+      <%= f.file_field :upload %>
+      <%= f.hidden_field :upload_cache %>
+    </div>
+
+  </div>
+
+  <div id="name_section">
+    <span><%= f.label :name, "Title" %> (optional) &nbsp; <img id="help" class="title_tooltip help_icon" src="/images/icons/question-mark.png"></span><br/>
+    <%= f.text_field :name, :size => nil %>
+  </div>
+
+  <div id="page_url_section">
+    <span><%= f.label :page_url, "Page URL" %> (optional) &nbsp; <img id="help" class="page_url_tooltip help_icon" src="/images/icons/question-mark.png"></span><br/>
+    <%= f.text_field :page_url, :size => nil %>
+  </div>
+
+  <div id="ref_section">
+    <span><%= f.label :ref, "Reference" %> (optional) &nbsp; <img class="ref_tooltip help_icon" src="/images/icons/question-mark.png"></span><br/>
+    <%= f.text_field :ref, :size => nil %>
+  </div>
+
+  <%= f.hidden_field :width %>
+  <%= f.hidden_field :height %>
+  <%= f.hidden_field :medium_width %>
+  <%= f.hidden_field :medium_height %>
+  <%= f.hidden_field :original_url %>
+  <input type="hidden" name="browser_width" value="0" />
+  <input type="hidden" name="browser_height" value="0" />
+
+  <%= f.submit 'next', :class => 'blue-button' %>  <%= image_tag("/images/spinner.gif", :height => '31', :width => '31', :id => 'spinner' ) %>
+
+<% end %>

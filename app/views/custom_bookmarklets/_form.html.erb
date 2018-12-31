@@ -1,0 +1,25 @@
+<%= form_for(@custom_bookmarklet) do |f| %>
+  <% if @custom_bookmarklet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@custom_bookmarklet.errors.count, "error") %> prohibited this custom_bookmarklet from being saved:</h2>
+
+      <ul>
+      <% @custom_bookmarklet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :script %><br />
+    <%= f.text_area :script, :style => "width:900px;height: 400px;font-family: monospace;font-size: 12px" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,129 @@
+<% content_for :head do %>
+  <style type="text/css">
+
+table tr {
+    height: 30px;
+}
+table tr td:first-child {
+    width: 200px;
+}
+
+  </style>
+<% end %>
+
+
+<% if flash[:notice] %>
+  <p><span style="color:blue;"><%= flash[:notice] %></span></p>
+<% end  %>
+<% if flash[:error] %>
+  <p><span style="color:red;"><%= flash[:error] %></span></p>
+<% end  %>
+
+<h2><%= @user.email %></h2>
+
+
+<table>
+  <tr>
+    <td>Most recent sign-in</td>
+    <td><%= l @user.current_sign_in_at, :format => :long %></td>
+  </tr>
+</table>
+
+<h4>API keys</h4>
+<% read_key = api_read_key_for_user(@user) %>
+<%= form_tag('/admin/api_options') do %>
+<%= hidden_field_tag 'user', @user.id %>
+<table>
+  <tr>
+    <td>read key</td>
+    <td>
+      <%= text_field_tag 'public_key', read_key %>
+      <% if !read_key %>
+        <%= submit_tag "create read key" %>
+      <% end  %>
+    </td>
+  </tr>
+  <tr>
+    <td>write key</td>
+    <td>
+      <%= text_field_tag 'secret_key', api_write_key_for_user(@user) %>
+      <% if !api_write_key_for_user(@user) %>
+        <%= submit_tag "create secret key" %>
+      <% end  %>
+    </td>
+  </tr>
+  <tr>
+    <td>domain name</td>
+    <td>
+      <%= text_field_tag 'hostname', api_hostname_for_user(@user) %>
+    </td>
+  </tr>
+</table>
+<%= submit_tag "save" %>
+<% end %>
+
+<h4>Bookmarklet</h4>
+<%= form_tag('/admin/submit_options') do %>
+<%= hidden_field_tag('user_id', @user.id) %>
+<table>
+  <tr>
+    <td>drag to toolbar:</td>
+    <td>
+      <% if @account_option.bookmarklet? && @key %>
+        <%=  render 'account/bm_code_js' %>
+      <% else %>
+        (enable bookmarklet visible and ensure write key exists)
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>bookmarklet visible</td>
+    <td><%= check_box_tag 'visible', 'yes', @account_option.bookmarklet? %></td>
+  </tr>
+  <tr>
+    <td>custom bookmarklet</td>
+    <td><%= select_bookmarklet_tag(@custom_bookmarklets,@account_option.custom_bookmarklet) %>
+    &nbsp;&nbsp;
+      <%= submit_tag('edit bookmarklet script', :name => 'edit_bookmarklet') %>
+    </td>
+  </tr>
+</table>
+<p>
+<%= submit_tag "save settings" %>
+</p>
+
+<% end %>
+
+<%= link_to "manage bookmarklets", custom_bookmarklets_path %>
+
+
+<hr/>
+<h4>Browser plugin</h4>
+<table>
+  <tr>
+    <td>has demo browser plugin</td>
+    <td><%= has_demo_plugin ? "yes" : "no" %></td>
+  </tr>
+</table>
+
+<hr/>
+
+<p>
+<% if @account_option.custom_bookmarklet %>
+view bookmarklet cache
+    <%= link_to "local", local_bookmarklet(api_write_key_for_user(@user)), :target => '_blank' %> /
+    <%= link_to "in cloud", cloud_bookmarklet(api_write_key_for_user(@user)), :target => '_blank' %>
+    <%= button_to "update bookmarklet cache", :action => 'sync_bookmarklet', :user_id => @user.id %>
+<% end %>
+</p>
+
+<p>
+view lifesizer cache
+    <%= link_to "local", local_lifesizer_cache(api_read_key_for_user(@user)), :target => '_blank' %> /
+    <%= link_to "in cloud", cloud_lifesizer_cache(api_read_key_for_user(@user)), :target => '_blank' %>
+    <%= button_to "purge lifesizer cache", :action => 'sync_image_cache', :user_id => @user.id %>
+</p>
+
+<p>
+  <%= link_to "back to users", :action => :users %>
+</p>

@@ -1,0 +1,65 @@
+
+<ul id="nav" class="">
+  <!-- Features and benefits -->
+  <li id="menu-item-274" class="menu-item menu-item-type-post_type menu-item-object-page active page_item page-item-74 current_page_item menu-item-274"><a href="<%= cms_url '/benefits' %>">Features &amp;</br><strong>Benefits</strong></a>
+    <div class="drop">
+      <ul class="sub-menu">
+        <li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-84"><%= link_to_cms 'For </br><strong>eCommerce</strong>', '/for-ecommerce' %></li>
+        <li id="menu-item-94" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-94"><%= link_to_cms 'For Product</br><Strong>Review Sites &amp; Blogs</strong>',  '/for-product-reviews' %></li>
+        <li id="menu-item-93" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-93"><%= link_to_cms 'For </br><Strong>Other Sites/Apps</strong>', '/for-other-sites-and-apps' %></li>
+      </ul>
+      <div class="holder"></div>
+    </div>
+  </li>
+  <!-- Add to your site -->
+  <li id="menu-item-273" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-273"><%= link_to_cms 'Add to</br><strong>Your Site</strong>', '/add-lifesizer-to-your-site' %>
+    <div class="drop">
+      <ul class="sub-menu">
+        <li id="menu-item-496" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-496"><%= link_to_cms 'Image Calibration', '/image-calibration'%></li>
+      </ul>
+      <div class="holder"></div>
+    </div>
+  </li>
+  <!-- Gallery -->
+  <li id="menu-item-375" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-375"><%= link_to(images_featured_url) do %></br><strong>Gallery</strong><% end %>
+    <div class="drop">
+      <ul class="sub-menu">
+        <li id="menu-item-498" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-498"><%= link_to 'Featured Images', images_featured_url %></li>
+        <li id="menu-item-499" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-499"><%= link_to 'Recent Images', images_recent_url %></li>
+      </ul>
+      <div class="holder"></div>
+    </div>
+  </li>
+  <!-- My Lifesizer -->
+  <li id="menu-item-501" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-501"><%= link_to(account_home_url) do %>My</br><strong>LifeSizer</strong><% end %>
+    <div class="drop">
+      <ul class="sub-menu">
+        <% if !user_signed_in? %>
+        <li id="menu-item-903" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-500"><%= link_to "Sign in", new_user_session_url %></li>
+        <li id="menu-item-904" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-500"><%= link_to "Sign up", new_user_registration_url %></li>
+        <% else %>
+        <li id="menu-item-512" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-500"><%= link_to "My LifeSizer", account_home_url %></li>
+        <li id="menu-item-500" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-500"><%= link_to "My Images", images_user_url %></li>
+        <li id="menu-item-901" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-500"><%= link_to 'Add Image', new_image_url %></li>
+        <% end %>
+      </ul>
+      <div class="holder"></div>
+    </div>
+  </li>
+
+  <!-- Plans & Pricing -->
+  <li id="menu-item-97" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><%= link_to_cms 'Plans &amp;</br><Strong>Pricing</strong>', '/plans-pricing-beta'%></li>
+  <!-- FAQ -->
+  <li id="menu-item-272" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-272"><%= link_to_cms '</br><strong>FAQ</strong>', '/faq/'%></li>
+  <!-- About -->
+  <li id="menu-item-288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><%= link_to_cms '</br><strong>About</strong>', '/about/' %>
+    <div class="drop">
+      <ul class="sub-menu">
+        <li id="menu-item-59" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-57"><%= link_to_cms 'About Us', '/about/' %></li>
+        <li id="menu-item-57" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-57"><%= link_to_cms 'Blog', '/blog/category/blog/' %></li>
+        <li id="menu-item-277" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-277"><%= link_to_cms 'Contact Us', '/contact-us/' %></li>
+      </ul>
+      <div class="holder"></div>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US" xmlns:fb="http://ogp.me/ns/fb#">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# lifesizer: http://ogp.me/ns/fb/lifesizer#">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <%= render 'layouts/site_metadata' %>
+  <title><%= content_for?(:title) ? yield(:title) : "LifeSizer" %></title>
+  <!-- version 1.1 -->
+
+  <!-- stylesheets -->
+  <%= stylesheet_link_tag :common, :media => 'all' %>
+  <!--[if IE]>
+  <%= stylesheet_link_tag "common/ie", :media => [:screen, :projection] %>
+  <![endif]-->
+
+<!-- javascripts -->
+<%= javascript_include_tag google_jquery, google_jquery_ui, :application %>
+
+<%= yield :head %>
+
+<%= csrf_meta_tag %>
+
+<script type="text/javascript">
+  <%= yield :script_content %>
+</script>
+
+  <%= render "layouts/favicon" %>
+  <%= render "layouts/ga" %>
+</head>
+<body>
+  <div id="fb-root"></div>
+
+<div id="wrapper">
+    <div id="header">
+        <%= render "layouts/user_bar" %>
+
+		<div class="header-box">
+			<strong class="logo"><a href="http://www.lifesizer.com"></a></strong>
+            <%= render "layouts/header" %>
+        </div>
+        <%= render 'layouts/social_buttons' %>
+	</div>
+    <div id="main">
+		<div class="block">
+          <%= yield %>
+        </div>
+    </div>  <!-- end main div -->
+
+  <%= render "layouts/footer" %>
+</div> <!-- end wrapper -->
+</body>
+</html>

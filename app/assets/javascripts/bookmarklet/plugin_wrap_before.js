@@ -1,0 +1,1 @@
+LsPlugins = function(jQuery) {

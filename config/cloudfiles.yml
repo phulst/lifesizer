@@ -1,0 +1,73 @@
+embed_files:
+  - url:      /assets/embed.js
+    target:   ls.js
+  - url:      /widget
+    target:   /html/widget.html
+  - file:     /img/embed/logo_overlay1.png
+  - file:     /img/embed/logo_overlay2.png
+  - file:     /img/embed/logo_overlay3.png
+  - file:     /img/embed/logo_overlay4.png
+  - file:     /img/embed/logo_overlay5.png
+
+viewer_files:
+  - file:     /img/view/calibrate/ref/cd-sm.png
+  - file:     /img/view/calibrate/ref/cd.png
+  - file:     /img/view/calibrate/ref/creditcard-sm.jpg
+  - file:     /img/view/calibrate/ref/creditcard.jpg
+  - file:     /img/view/calibrate/ref/dollar-sm.png
+  - file:     /img/view/calibrate/ref/dollar.png
+  - file:     /img/view/calibrate/ref/measure-sm.png
+  - file:     /img/view/calibrate/ref/measure.png
+  - file:     /img/view/toolbar/bg/bar-left-end.png
+  - file:     /img/view/toolbar/bg/bar-right-end.png
+  - file:     /img/view/toolbar/bg/bar-bg-repeat.png
+  - file:     /img/view/toolbar/bg/bar-vertical-line.png
+  - file:     /img/view/toolbar/close.png
+  - file:     /img/view/toolbar/monitor-icon.png
+  - file:     /img/view/toolbar/uncalibrated.png
+  - file:     /img/view/toolbar/zoom-bubble.png
+  - file:     /img/view/toolbar/1-1button.png
+  - file:     /img/view/toolbar/settings.png
+  - file:     /img/view/toolbar/bg/dropdown-bg-top.png
+  - file:     /img/view/toolbar/bg/dropdown-bg.png
+  - file:     /img/view/toolbar/grid-icon.png
+  - file:     /img/view/toolbar/ruler-icon.png
+  - file:     /img/view/toolbar/bg/dropdown-bottom-close.png
+  - file:     /img/view/toolbar/warn.png
+  - file:     /img/view/toolbar/zoom/zoom-bar-tick.png
+  - file:     /img/view/toolbar/zoom/zoom-knob-w-shadow.png
+  - file:     /img/view/calibrate/close-dialog.png
+  - file:     /img/view/calibrate/apple.png
+  - file:     /img/view/toolbar/logo.png
+  - file:     /img/view/tooltip/tip-twitter_arrows.gif
+  - file:     /img/mobile/close.png
+  - file:     /img/mobile/logo150.png
+
+web_files:
+  - dir:      /img/layout
+  - dir:      /img/logo
+  - dir:      /img/button
+  - url:      /assets/common.css
+    target:   /css/common.css
+
+bookmarklet_files:
+  - url:      /assets/bookmarklet.js
+    target:   /js/bm/ls-bm-1.0.js
+  - url:      /assets/bookmarklet.css
+    target:   /css/bm/ls-bm-1.0.css
+  - url:      /assets/bookmarklet-https.css
+    target:   /css/bm/ls-bm-1.0-https.css
+  - file:     /stylesheets/colorbox/images/loading.gif
+    target:   /img/colorbox/loading.gif
+  - file:     /stylesheets/colorbox/images/loading_background.png
+    target:   /img/colorbox/loading_background.png
+  - file:     /stylesheets/colorbox/images/loading.gif
+    target:   /img/colorbox/loading.gif
+  - file:     /stylesheets/colorbox/images/loading_background.png
+    target:   /img/colorbox/loading_background.png
+  - file:     /stylesheets/colorbox/images/border.png
+    target:   /img/colorbox/border.png
+  - file:     /stylesheets/colorbox/images/controls.png
+    target:   /img/colorbox/controls.png
+
+

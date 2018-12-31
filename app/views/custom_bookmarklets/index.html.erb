@@ -1,0 +1,17 @@
+<h2>Bookmarklets</h2>
+
+<table>
+
+<% @custom_bookmarklets.each do |custom_bookmarklet| %>
+  <tr width="800">
+    <td width="500"><%= custom_bookmarklet.name %></td>
+    <td style="padding:10px"><%= link_to 'Show', custom_bookmarklet %></td>
+    <td style="padding:10px"><%= link_to 'Edit', edit_custom_bookmarklet_path(custom_bookmarklet) %></td>
+    <td style="padding:10px"><%= link_to 'Delete', custom_bookmarklet, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Custom bookmarklet', new_custom_bookmarklet_path %>

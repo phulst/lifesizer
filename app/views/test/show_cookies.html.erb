@@ -1,0 +1,27 @@
+
+<h2>Remove LifeSizer Cookies bookmarklet</h2>
+
+drag this link to your toolbar to be able to easily delete LifeSizer cookies: 
+<a href="javascript:(function(){var c=document.cookie.split(';');for(var i=0;i<c.length;i++){var e=c[i].indexOf('=');var n=e>-1?c[i].substr(0,e):c[i];console.log('deleting cookie '+n);document.cookie=n+'=;expires='+new Date(0).toUTCString()+';path=/';}})();">delete ls cookies</a>
+
+<br/>
+
+drag this link to your toolbar to be able to easily delete LifeSize imageref cache:
+<a href="javascript:(function(){if (('localStorage' in window) && window['localStorage'] !== null){localStorage.clear();alert('local storage cleared');}else{alert('local storage not supported in this browser');}})();">delete localstorage</a>
+
+
+<h2> LifeSize cookie </h2>
+<%= request.cookies[ApplicationController::LIFESIZE_COOKIE] || 'Cookie not found' %>
+
+<pre>
+<%= @cookie_value %>
+</pre>
+
+<%= button_to "Delete LifeSize cookie", { :action => "delete_lifesize" } %>
+
+<h2> Screen cookie </h2>
+<pre>
+<%= @screen_cookie_value %>
+</pre>
+
+<%= button_to "Delete Screen cookie", { :action => "delete_screen" } %>

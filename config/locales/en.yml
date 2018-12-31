@@ -1,0 +1,46 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+
+  screen:
+    ipad:             "Apple ipad"
+    iphone:           "Apple iphone"
+    ipod:             "Apple iPod Touch"
+    kindle_fire_hd7:  "Kindle Fire HD"
+    mb_air_11:        "11 inch Apple MacBook Air"
+    mb_air_13:        "13 inch Apple MacBook Air"
+    mb_13:            "13 inch MacBook or MacBook Pro"
+    mb_pro_15:        "15 inch Apple MacBook Pro"
+    mb_pro_15_hr:     "15 inch Apple MacBook Pro with hi-res screen"
+    mb_pro_15_rt:     "15 inch Apple MacBook Pro (Retina)"
+    mb_pro_17:        "17 inch Apple MacBook Pro"
+    mb_pro_17_hr:     "17 inch Apple MacBook Pro with hi-res screen"
+    imac_20:          "iMac (2007) with 20 inch screen"
+    imac_24:          "iMac (2007) with 24 inch screen"
+    imac_21:          "iMac with 21.5 inch screen"
+    imac_27:          "iMac with 27 inch screen"
+    mac_ext_27:       "an Apple system with 27 inch display"
+    other:            "not sure / other external display"
+
+  # lifesize popup controller
+  show:
+    index:
+      ask_screen: "To display this image in its actual size, we need to know what type of computer display you are viewing this on."
+      unknown_screen: "To display this image in actual size, we need some help to determine your screen size. This will only take a second..."
+      not_lifesize_tooltip: "This image may not currently be displaying in its true size on your screen. Click here to fix this."
+    error:
+      image_not_found: The image you requested is no longer available
+
+
+  # used in IOS views
+  device:
+    ios:
+      ios_device: "iOS device"
+      iphone: "iPhone"
+      ipad: "iPad"
+      ipod: "iPod"
+    android:
+      nook: Nook
+      nexus7: Nexus 7
+      android_device: Android device

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>LifeSizer embed code</title>
+
+  <%= stylesheet_link_tag :widget_popup, :media => 'all' %>
+</head>
+<body>
+
+<div id="main">
+  <div id="title"><h4>This is your LifeSizer widget</h4></div>
+  <div id="frame">
+    <%= render :partial => 'widget/embed_code', :locals => { :image => @image }  %>
+  </div>
+  <div id="embed_hdr"><h5>copy this embed code and paste into your web page:</h5></div>
+  <input type="text" value="<%= raw(render :partial => 'widget/embed_code', :locals => { :image => @image })%>"></input>
+  <div id="comment">(It's safe to change the width and height<br/>in this code if you prefer it smaller)</div>
+</div>
+
+
+</body>
+</html>

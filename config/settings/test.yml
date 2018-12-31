@@ -1,0 +1,19 @@
+
+webhost: localhost:3000
+
+
+cloud_files:
+  enabled:  false
+
+social:
+  disqus:
+    dev_mode: true
+  facebook:
+    app_id:     app_id_goes_here
+    secret:     secret_goes_here
+  google:
+    app_id:     app_id_goes_here
+    secret:     secret_goes_here
+  twitter:
+    app_id:     app_id_goes_here
+    secret:     secret_goes_here

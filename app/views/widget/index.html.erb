@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LifeSizer</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <script type="text/javascript">
+
+function getIframeDims() {
+    var viewportWidth  = document.documentElement.clientWidth;
+    var viewportHeight = document.documentElement.clientHeight;
+    return [viewportWidth, viewportHeight];
+}
+
+var urlParams = {};
+(function () {
+    var e,
+        a = /\+/g,  // Regex for replacing addition symbol with a space
+        r = /([^&=]+)=?([^&]*)/g,
+        d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
+        q = window.location.search.substring(1);
+
+    while (e = r.exec(q))
+       urlParams[d(e[1])] = d(e[2]);
+})();
+
+
+function loadImage(fimage, callback) {
+    var loaded = false;
+    var img = document.getElementById('ls_image');
+
+    function loadHandler() {
+        if (loaded) {
+            return;
+        }
+        loaded = true;
+        var width = img.naturalWidth || img.width;
+        var height = img.naturalHeight || img.height;
+        callback(img, width, height);
+    }
+    img.onload = loadHandler;
+    img.src = fimage;
+    //img.style.display = 'block';
+    if (img.complete) {
+        loadHandler();
+    }
+}
+
+/**
+ * resize an image so it fits within the dimensions passed in, while preserving the original proportions
+ * @param img image dimensions [x, y]
+ * @param maxDim box dimensions to fit into [width, height]
+ * @return render image dimensions [width, height]
+ */
+function fitInBox(img, maxDim) {
+  var width = img[0]; var height = img[1];
+  var maxWidth = maxDim[0]; var maxHeight = maxDim[1];
+  if (width <= maxWidth && height <= maxHeight) {
+    return img; // no need to resize
+  } else if (width > maxWidth && height > maxHeight) {
+    // both width and height are too large
+    var f1 = width / maxWidth;
+    var f2 = height / maxHeight;
+    var f = (f1 > f2) ? f1 : f2;
+  } else if (width > maxWidth) {
+    var f = width / maxWidth; // only width is too large
+  } else {
+    var f = height / maxHeight; // height is too large
+  }
+  return [Math.round(width/f), Math.round(height/f)];
+}
+
+function init() {
+    var user = parseInt(urlParams['user']);
+    var ref = urlParams['ref'];
+    var imgId = urlParams['img'];
+    var type = urlParams['type'] || 'jpg';
+    var imgHost = urlParams['imgHost'] || 'images.lifesizer.com'
+
+    // set up click handler to open popup
+    document.getElementById('content').addEventListener('click', viewLifeSize);
+
+    setUpOverlay();
+
+    if (user && ref && imgId) {
+        var imageUrl = 'http://' + imgHost + '/ls/' + Math.floor(user/1000) + '/' + user + '/' + imgId + '_m.' + type;
+        // load image, and size and position it in callback
+        loadImage(imageUrl, function(img, width, height) {
+            var availDims = getIframeDims();
+            var dims = fitInBox([width, height], [availDims[0]-10, availDims[1]-10]);
+            img.setAttribute('width', dims[0]);
+            img.setAttribute('height', dims[1]);
+            img.style.left = (availDims[0]-dims[0])/2 + 'px';
+            img.style.top  = (availDims[1]-dims[1])/2 + 'px';
+            img.style.display = 'block';
+        });
+    }
+}
+
+function viewLifeSize() {
+    var url = 'http://' + (urlParams['host'] || 'beta.lifesizer.com') + '/view';
+    var data = {
+        user: urlParams['user'],
+        ref: urlParams['ref'],
+        h: screen.height,
+        w: screen.width
+    };
+    popup(url, data, 600, 500);
+}
+
+/**
+ * opens popup for lifesizer window
+ * @param url url to load in window (should not contain query string)
+ * @param params query parameters to add to url
+ * @param width - minimum width of popup dialog (may be null or undefined)
+ * @param height - minimum height of popup dialog (may be null or undefined)
+ */
+function popup(url, params, width, height) {
+  // add parameters to url
+  url += '?';
+  for (var p in params) {
+      url += p + "=" + params[p] + '&';
+  }
+  url = url.substring(0, url.length-1);
+
+  // set up attributes for popup window
+  var params = 'width='+width+', height='+height;
+  //params += ', top='+top+', left='+left;
+  params += ', directories=no';
+  params += ', location=no';
+  params += ', menubar=no';
+  params += ', resizable=yes';
+  params += ', scrollbars=no';
+  params += ', status=no';
+  params += ', toolbar=no';
+  var newwin=window.open(url,'embed_popup', params);
+  if (window.focus) newwin.focus();
+  return false;
+}
+
+
+/**
+ * shows the link overlay
+*/
+function setUpOverlay() {
+    var overlay_logo = document.getElementById('overlay-logo');
+    var overlay_txt = document.getElementById('overlay-txt');
+    var content = document.getElementById('content');
+
+    content.onmouseover = function() {
+        overlay_logo.className = 'logo_on';
+        overlay_txt.style.display = 'block';
+        content.style.cursor = 'pointer';
+    }
+    content.onmouseout = function() {
+        overlay_logo.className = 'logo_off';
+        overlay_txt.style.display = 'none';
+        content.style.cursor = 'default';
+    }
+}
+
+  </script>
+
+  <style type="text/css">
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', Tahoma, Arial, sans-serif;
+}
+
+.outline {
+  display:   block;
+  position:  absolute;
+  height:    auto;
+  bottom:    0px;
+  top:       0px;
+  left:      0px;
+  right:     0px;
+  border-radius:          10px;
+  -moz-border-radius:     10px;
+  -webkit-border-radius:  10px;
+}
+
+#content {
+  border:           1px solid #666;
+  background-color: white;
+}
+
+#overlay-logo {
+  position: absolute;
+  top:      5px;
+  left:     5px;
+  height:   36px;
+  width:    120px;
+  background-image:  url('http://embed.lifesizer.com/img/embed/logo_overlay2.png');
+  background-repeat: no-repeat;
+}
+
+#overlay-txt {
+  position:    absolute;
+  display:     none;
+  bottom:      0px;
+  left:        0px;
+  right:       0px;
+  text-align:  center;
+  font-size:   13px;
+  font-weight: bold;
+  line-height: 2.0em;
+  color:       white;
+  border-bottom-right-radius:         10px;
+  border-bottom-left-radius:          10px;
+
+  -moz-border-radius-bottomright:     10px;
+  -moz-border-radius-bottomleft:      10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-left-radius:  10px;
+
+  background: rgb(40,40,40) transparent;
+  background: rgba(40,40,40, 0.6);
+  /** unfortunately enbabling these transparency filters for old IE8 version will cause the rounded corners
+   * to break in IE */
+  /* filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99282828, endColorstr=#99282828);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99282828, endColorstr=#99282828)"; */
+}
+
+.logo_off {
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+.logo_on {
+  opacity: 1.0;
+  filter:alpha(opacity=100); /* For IE8 and earlier */
+}
+
+#ls_image {
+    position: absolute;
+    display: none;
+}
+
+#not_available {
+    display: none;
+    font-size: 16px;
+    text-align: center;
+    margin: 60px 20px 0 20px;
+    line-height: 1.5em;
+}
+  </style>
+
+  <%= render "layouts/favicon" %>
+  <%= render "layouts/ga" %>
+</head>
+<body onload="init()">
+
+<div id="content" class="outline">
+  <div id="available">
+    <img id="ls_image"/>
+    <div id="overlay-logo" class="logo_off"></div>
+    <div id="overlay-txt">see this in life size</div>
+  </div>
+  <div id="not_available">
+    Sorry, this LifeSizer image is no longer available
+    <br/><br/>
+    <a target="_blank" href="http://www.lifesizer.com">LifeSizer.com</a>
+  </div>
+</div>
+
+</body>
+</html>

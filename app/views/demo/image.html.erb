@@ -1,0 +1,19 @@
+<% content_for :head do %>
+  <%= javascript_include_tag :demo_image %>
+  <%= stylesheet_link_tag 'demo/image', :media => 'all' %>
+<% end %>
+
+<% if !@image.name.blank? %>
+<h3><%=  @image.name %></h3>
+<% end %>
+
+<div id="imageContainer">
+  <%= thumbnail(@image, :type => :medium) %>
+  <img class="overlay" src='<%= "http://#{cdn_embed_host}/img/embed/logo_overlay5.png" %>'/>
+</div>
+
+<% if !@image.page_url.blank? %>
+<div class='link'>
+    <%= link_to "view on #{product_domain(@image)}", @image.page_url, :target => '_blank' %>
+</div>
+<% end %>

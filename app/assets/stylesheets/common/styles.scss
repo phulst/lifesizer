@@ -1,0 +1,54 @@
+/**
+ * (c) 2012 LifeSizer, Inc.
+ *
+ * contains global styles for basic elements, such as fonts, header styles, default link styles, etc
+ * This stylesheet is shared between Rails / WP sites.
+ */
+@import "../theme";
+@import "../globals";
+
+body{
+  font-family:        $fontFamily;
+  font-size:          14px;
+  color:              $default_font_color;
+}
+
+a {
+  text-decoration:    none;
+  color:              $link_color;
+  .big-link {
+    font-size:        16px;
+  }
+
+  &:hover {
+    text-decoration:  none;
+    color:            $link_color_hover;
+  }
+}
+
+/* p, li, address { font-size:1.4em; } */
+p { margin:3px 0 8px; line-height: 1.4em; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; color: $header_font_color; padding:0 }
+h1 { font-size:2.0em; font-weight: bold; margin: 0 0 20px;}
+h2 { font-size:1.8em; font-weight: bold; margin: 10px 0 20px;}
+h3 { font-size:1.6em; font-weight: bold; margin: 10px 0 20px;}
+h4 { font-size:1.4em; font-weight: bold; margin: 10px 0 15px;}
+h5 { font-size:1.2em; margin: 0 0 10px; }
+h6 { font-size:1.1em; margin: 0 0 10px; }
+ul { margin-left:40px; margin-bottom:20px }
+li { margin-bottom: 10px; line-height: 1.6em; font-size: 1em;}
+img { border-style:none; }
+i, em { font-style:italic }
+strong { font-weight:bold }
+//img.icon { float:left; margin:0 15px 10px 0 !important; border:0 !important; padding:0 !important }
+.inner { width:970px; margin:0 auto }
+.clear {height:0px;overflow:hidden;margin:0px;clear:both;}
+
+pre {
+  margin-top:     10px;
+  margin-bottom:  10px;
+  font-family:    'courier new';
+  font-size:      1em;
+  background:     white;
+  padding:        10px;
+}

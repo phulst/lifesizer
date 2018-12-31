@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <%= stylesheet_link_tag :view, :media => 'all' %>
+  <%= javascript_include_tag google_jquery, google_jquery_ui, :view %>
+
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag 'ext/raphael-min' %>
+  <![endif]-->
+
+  <%= yield :head %>
+  <script type="text/javascript">
+  	<%= yield :script_content %>
+  </script>
+
+  <title><%= content_for?(:title) ? yield(:title) : "LifeSizer" %></title>
+
+  <%= render "layouts/favicon" %>
+  <%= render "layouts/ga" %>
+</head>
+<body>
+  <%= yield %>
+</body>
+</html>

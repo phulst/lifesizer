@@ -1,0 +1,43 @@
+20usd:
+  id: 1
+  user_id: 1
+  url: /images/cal/ref/20dollar.jpg
+  ref: 20usd
+  width: 1000
+  height: 427
+  dpi: 163.4
+  image_type: 2
+  name: 20 dollar bill calibration image
+
+cd:
+  id: 2
+  user_id: 1
+  url: /images/cal/ref/cd.jpg
+  ref: cd
+  width: 988
+  height: 996
+  dpi: 197.6
+  image_type: 2
+  name: cd calibration image
+
+ruler:
+  id: 3
+  user_id: 1
+  url: /images/cal/ref/ruler.jpg
+  ref: m
+  width: 1200
+  height: 118
+  dpi: 100
+  image_type: 2
+  name: ruler calibration image
+
+creditcard:
+  id: 4
+  user_id: 1
+  url: /images/cal/ref/creditcard.jpg
+  ref: cc
+  width: 675
+  height: 424
+  dpi: 200
+  image_type: 2
+  name: credit card calibration image

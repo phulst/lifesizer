@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <title>LifeSizer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <style type="text/css" media="screen">
+body {
+    margin:         5px;
+    font-family:    Helvetica;
+    background:     #ffffff;
+    color:          #000000;
+    -webkit-text-size-adjust: none;
+}
+#flash_error {
+    font-size:      16px;
+    color:          red;
+}
+#topnav {
+    width:          100%;
+    height:         40px;
+    margin-bottom:  10px;
+}
+#topnav #logo {
+    float:          left;
+}
+#topnav #close {
+    float:          right;
+}
+#bottom-msg {
+    font-style:     italic;
+    font-size:      12px;
+}
+  </style>
+
+  <%= render "layouts/favicon.html" %>
+  <%= render "layouts/ga.html" %>
+
+  <script type="text/javascript" >
+
+var currentWidth = 0;
+var currentOrientation = -1;
+var device_type = '<%= ios_device_type %>';
+
+function init() {
+    _gaq = _gaq || []; // if not defined yet
+    _gaq.push(['_trackEvent', 'LifeSizeView', device_type]);
+    setTimeout(updateLayout, 0);
+}
+
+function updateLayout(){
+  if (window.innerWidth != currentWidth){
+    currentWidth = window.innerWidth;
+
+    //var orient = currentWidth == 320 ? "profile" : "landscape";
+    //document.body.setAttribute("orient", orient);
+    setTimeout(function(){
+      window.scrollTo(0, 1);
+    }, 100);
+  }
+}
+
+function checkOrientationChange() {
+  var orient = window.orientation;
+  if (orient != currentOrientation) {
+      currentOrientation = orient;
+      updateLayout();
+  }
+}
+
+setInterval(checkOrientationChange, 400);
+  </script>
+
+</head>
+
+<body onload="init()">
+
+  <div id="topnav">
+    <div id="logo"><a target="_blank" href="http://www.lifesizer.com?uref=<%= @user_id %>"><img id="logo" src="/images/logo/patent_logo.png" border="0"/></a></div>
+    <div id="close"><a href="javascript:window.self.close();"><img src="/images/mobile/close.png" border="0" /></a></div>
+  </div>
+
+  <% if flash[:error] %>
+    <p id="flash_error"><%= flash[:error] %></p>
+  <% else %>
+    <%= lifesize_image(@image) %>
+
+    <p id="bottom-msg">Yes, this shows in life-size on your <%= ios_device_type %>.</p>
+  <% end %>
+
+</body>
+</html>

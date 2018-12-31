@@ -1,0 +1,40 @@
+#upload_section {
+  padding: 10px;
+  margin: 0 0 10px 0;
+  display: block;
+  width: 750px;
+  border: 1px solid;
+  border-color: #808080; }
+  #upload_section #upload_url {
+    display: block;
+    height: 60px; }
+    #upload_section #upload_url #image_remote_upload_url {
+      width: 500px; }
+  #upload_section #or {
+    padding: 0 0 10px 0;
+    display: block;
+    width: 100px;
+    height: 30px;
+    margin-left: 100px;
+    font-weight: bold;
+    font-size: large; }
+  #upload_section #upload_file {
+    height: 60px;
+    display: block; }
+
+#name_section input {
+  width: 500px; }
+
+#page_url_section input {
+  width: 500px; }
+
+#ref_section input {
+  width: 120px; }
+
+#content img.help_icon {
+  padding: 0;
+  border: 0;
+  vertical-align: text-bottom; }
+
+#spinner {
+  display: none; }

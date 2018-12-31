@@ -1,0 +1,122 @@
+@import "mixins";
+
+body{
+  margin:0;
+  padding:0;
+  text-align: center;
+  height:100%;
+  //line-height: 1.5em;
+  font-size: 16px;
+  font-family:Verdana,Geneva,sans-serif;
+}
+
+// main content
+#content {
+  position:     relative;
+  margin-left:  auto;
+  margin-right: auto;
+  width:        650px;
+  height:       100%;
+  text-align:   left;
+}
+
+// initially hide everything for step 2
+.stepTwo {
+  display:      none;
+}
+
+// description text containers
+#description {
+  position:     relative;
+  padding-top:  20px;
+  padding-left: 20px;
+  padding-right:20px;
+  width:        100%;
+  height:       100px;
+  z-index:      10;
+  @include transparent_background;
+
+  span.smalltext {
+    font-size:  14px;
+    font-style: italic;
+  }
+  .stepTwoText {
+    display:      none;
+  }
+}
+
+#imageselections {
+  .row {
+    clear: left;
+    width: 600px;
+    margin-left:  50px;
+  }
+  .calibrate {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #FFFFFF;
+    margin: 10px;
+    float: left;
+    border: 2px solid;
+    border-color: #808080;
+
+    @include rounded;
+    @include shadow;
+
+    .calTitle {
+      position:absolute;
+      background-color: #404040;
+      height: 40px;
+      bottom: 0px;
+      left: 0px;
+      right:0px;
+      text-align:center;
+      color: #ffffff;
+      padding-top: 5px;
+      line-height: 1em;
+      display: none;
+
+      a:visited { text-decoration:none;}
+
+    }
+  }
+  img {
+    position: absolute;
+  }
+}
+
+#onedollar {
+  top:  60px;
+  left: 15px;
+}
+#cd {
+  top:  15px;
+  left: 15px
+}
+#creditcard {
+  top:  45px;
+  left: 14px
+}
+#ruler {
+  top:  65px;
+  left: 15px;
+}
+
+// bottom button toolbar
+#buttonBar {
+  position: absolute;
+  bottom:   20px;
+  left:     20px;
+  z-index:  10;
+
+  #doneButton {
+    display:  none;
+  }
+}
+
+// the lifesize image
+#lifesize {
+  position: absolute;
+  display:  none;
+}

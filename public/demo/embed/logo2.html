@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <style type="text/css">
+#imgContainer {
+    width:400px;
+    height:400px;
+    margin:20px;
+    border:1px solid black;
+}
+  </style>
+
+<!-- begin LifeSizer content -->
+<script type="text/javascript">
+  window.lsAsyncInit = function() {
+      Ls.init({
+          host: window.location.hostname + ':' + window.location.port, // this property should be left out for customers
+          appKey: 'none',
+          user: '1',
+          overlayButtonType: 2
+      });
+  };
+  (function() {
+    var s = document.createElement('script'); s.async = true; s.type = 'text/javascript';
+    s.src = '/js/embed.js';
+    x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+  }());
+</script>
+<!-- end LifeSizer content -->
+
+</head>
+<body>
+  <p>with extra property:  <pre>overlayButtonType: 2</pre> </p>
+
+  <div id="imgContainer">
+      <img src="/content/uploads/ls_img/0/1/1f131418d693.jpg" width="400" height="300" data-ls-ref="_1" />
+  </div>
+
+</body>
+</html>

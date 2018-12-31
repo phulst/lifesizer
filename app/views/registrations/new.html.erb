@@ -1,0 +1,43 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'registrations/new' %>
+<% end %>
+
+<% title "Sign Up" %>
+
+<h2>Sign up</h2>
+
+<p>Sign up for a free LifeSizer account to start adding your own LifeSize images!</p>
+
+<div id="social-signin">
+<%= link_to image_tag('social/signin_facebook.png'), user_omniauth_authorize_path(:facebook) %>
+<%= link_to image_tag('social/signin_google.png'), user_omniauth_authorize_path(:google_oauth2) %>
+<%= link_to image_tag('social/signin_twitter.png'), user_omniauth_authorize_path(:twitter) %>
+</div>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'lsform'}) do |f| %>
+  <%= render :partial => 'layouts/alert', :object => devise_error_messages! if !f.error_messages.blank? %>
+
+  <br/>
+
+  <p><%= f.label :email %>
+  <div class="clear"></div>
+  <%= f.email_field :email %></p>
+
+  <% if f.object.password_required? %>
+    <p><%= f.label :password %>
+    <div class="clear"></div>
+    <%= f.password_field :password %></p>
+
+    <p><%= f.label :password_confirmation %>
+    <div class="clear"></div>
+    <%= f.password_field :password_confirmation %></p>
+  <% end %>
+
+  <%= f.hidden_field :plan %>
+
+  <%= f.submit "sign up", :class => 'blue-button', :id => 'sign_up' %>
+<% end %>
+
+<p>
+<%= render :partial => "devise/shared/links" %>
+</p>

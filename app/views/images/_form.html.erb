@@ -1,0 +1,44 @@
+<%= form_for [current_user, @image], :remote => true do |f| %>
+  <div id="error_explanation">
+    <h2>there were some problems with your form data. Please fix below... </h2>
+  </div>
+
+  <div id="columns">
+    <div class="column">
+      <div id="url" class="field">
+        <%= f.label :original_url, "Image URL" %><br />
+        <div class="error_label err_remote_upload_url"></div>
+        <%= f.text_field :original_url %>
+      </div>
+      <div id="name" class="field">
+        <%= f.label :name, "Name" %><br />
+        <div class="error_label err_name"></div>
+        <%= f.text_field :name %>
+      </div>
+      <div id="page_url" class="field">
+        <%= f.label :page_url, "Page URL" %><br />
+        <div class="error_label err_page_url"></div>
+        <%= f.text_field :page_url %>
+      </div>
+      <div id="ref" class="field">
+        <%= f.label :ref, "Image Reference" %><br />
+        <div class="error_label err_ref"></div>
+        <%= f.text_field :ref %>
+      </div>
+      <div id="private" class="field">
+        <%= f.check_box :private %>
+        <%= f.label :private, "Keep private" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit 'calibrate image', :id => "calibrate_button", :class => "blue-button" %>
+        <%= f.submit 'save', :id => 'save_button', :class => 'blue-button' %>
+        <%= f.submit 'save and next', :id => 'save_next_button', :class => 'blue-button' %>
+      </div>
+    </div><!-- end left column -->
+    <div class="column"><!-- begin right column -->
+      <%= thumbnail(@image, :type => :medium, :product_images => true) %>
+    </div>
+  </div>
+  <div class="clear"></div>
+<% end %>

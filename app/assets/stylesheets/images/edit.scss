@@ -1,0 +1,30 @@
+@import '../theme';
+
+
+#url, #name, #page_url {
+  input {
+    width:          600px;
+  }
+}
+
+form {
+  div {
+    margin-bottom:  10px;
+  }
+}
+
+div.column {
+  float:            left;
+  margin-right:     20px;
+}
+
+.error_label {
+  color:            $error_highlight_color;
+  font-size:        1.1em;
+  display:          none;
+  margin:           4px 0 4px 0;
+}
+
+#error_explanation {
+  display:          none;
+}

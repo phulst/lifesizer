@@ -1,0 +1,1 @@
+<iframe width='260' height='260' src='http://<%= prod_env? ? "embed.lifesizer.com/html/widget.html" : "#{current_host}/widget"%>?user=<%=image.user_id%>&ref=<%=image.image_ref%>&img=<%=image.guid%><%=include_img_host_par%><%=include_file_type_par(image)%><%=include_test_host_par%>' frameborder='0'></iframe>

@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <title>Image config embed demo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <script type="text/javascript" src="/javascripts/jq/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // initialize the LifeSizer functionality and tell it where all attributes
+            // can be found in the html page by passing in the jquery selectors.
+            setUpLifeSizerConfig({
+
+                // this is the selector for the container (DIV) that contains the
+                // image to be added to LifeSizer. This container should only have a single image
+                imgContainer:   '#imageContainer',
+
+                // This is the reference (unique id) used to link back to the lifesizer image later on.
+                // this will typically be a product ID, SKU, or unique database key.
+                // You may pass in a selector to an input field (ie text input), or a selector to a
+                // DIV or SPAN tag that contains the reference
+                reference:      'input:text[name=id]',
+
+                // this selector should point to a descriptive title for the image.
+                // The selector may either point to an input field (ie text input), or to a DIV or SPAN
+                // tag containing the title.
+                title:          '#imageTitle'
+            });
+        });
+    </script>
+
+    <style type="text/css" media="screen">
+
+#imageContainer {
+    width: 700px;
+    height: 400px;
+    border: 1px solid black;
+}
+
+    </style>
+
+
+  </head>
+  <body>
+    <h1>Image Configuration Embed demo</h1>
+
+    <p>This page demonstrates how the LifeSizer image configuration can be embedded with any image administration
+       page of a blog, cms, shopping portal or custom developed site. </p>
+
+
+    <div id="imageContainer">
+      <img src="/images/examples/protractor.jpg" width="617" height="334"/>
+    </div>
+
+    <div id="theForm" style="width: 800px;">
+    <form>
+    <h2>Add your image</h2>
+
+    <p>This form is just an example of what your image submission form might look like. You can't use it to actually
+       submit any images, it's simply here to demonstrate how the LifeSizer configuration can interact with
+       the image title and other elements in this form.
+    </p>
+
+    <p><b>Enter your image title  <input type="text" id="imageTitle" name="title"></input></p>
+
+    <p><b>unique id for image/product <input type="text" id="uniqueId" name="id"></input></p>
+
+    <p><b>Enter other info <input type="text" name="other"></input></p>
+
+    <input type="submit" value="save image" onclick="alert('this doesn\'t do anything');"/>
+    </form>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<% content_for :head do %>
+  <%= javascript_include_tag google_jquery %>
+<% end %>
+
+<h1>device info</h1>
+
+<p>Enter a name for this device and we'll save all its browser identification data</p>
+
+
+<%= form_tag("/admin/device_info", :method => "post") do %>
+  <%= label_tag(:q, "Device name") %>
+  <%= text_field_tag(:name) %>
+  <%= hidden_field_tag(:device_data) %>
+  <%= submit_tag("send") %>
+<% end %>
+
+
+<p></p>
+<pre>
+<script type="text/javascript">
+  // grab the interesting browser info
+    function info(prop) {
+        var ignore = ['plugins', 'mimeTypes'];
+        var s = {};
+        for (i in window[prop]) {
+            if (ignore.indexOf(i) < 0) {
+                s[i] = window[prop][i];
+            }
+        }
+        return s;
+    }
+    function docBody() {
+        var d = document.body;
+        return {
+            clientWidth:    d.clientWidth,
+            clientHeight:   d.clientHeight,
+            offsetWidth:    d.offsetWidth,
+            offsetHeight:   d.offsetHeight
+        };
+    }
+
+    function findPpi() {
+        var a = 20; // lowest possible value
+        var b = 1200; // highest possible value
+        var x;
+        if (!window.matchMedia || !window.matchMedia('(min-resolution: ' + a + 'dpi)').matches) {
+            // min-resolution media query must not be supported
+            return 0;
+        }
+        while (a < b - 1) {
+            x = Math.round((a+b) / 2);
+            var tst = window.matchMedia('(min-resolution: ' + x + 'dpi)').matches;
+            //console.log("testing on " + x + ", result = " + tst);
+            if (tst) {
+                a = x;
+            } else {
+                b = x;
+            }
+        };
+        return a;
+    }
+
+    var data = {
+        outerWidth:         window.outerWidth,
+        outerHeight:        window.outerHeight,
+        innerWidth:         window.innerWidth,
+        innerHeight:        window.innerHeight,
+        'document.body':    docBody(),
+        screen:             info('screen'),
+        navigator:          info('navigator'),
+        ppi:                findPpi(),
+        devicePixelRatio:   window.devicePixelRatio
+    }
+
+    var json = (JSON != null) ? JSON.stringify(data, undefined, 2) : $.toJSON(data);
+    document.writeln(json);
+    $('#device_data').val(json);
+</script>
+</pre>
+
+<br/>
+<h2>Handset detection response</h2>
+<pre>
+  <%= @detect_data.to_yaml %>
+</pre>

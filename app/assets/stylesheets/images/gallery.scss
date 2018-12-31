@@ -1,0 +1,70 @@
+@import "../theme";
+@import "../mixins";
+
+#main {
+//  width: 100%;
+}
+
+.block {
+  margin-left: 40px;
+//  width: 80%;
+//  display: block;
+//  margin-left: auto;
+//  margin-right: auto;
+}
+
+.ls_item {
+  @include shadow;
+  background-color:   #fff;
+  width:              208px;
+  float:              left;
+  border:             1px solid $image_border_color;
+  margin:             5px 0px 5px 0px;
+
+  img.lsview {
+    display:          block;
+    margin-left:      auto;
+    margin-right:     auto;
+    padding:          4px;
+  }
+
+  &:hover {
+    border:           2px solid $highlight_color;
+  }
+  .metadata {
+    background-color: #eee;
+    height:           auto;
+
+    div:first-child {
+      padding:        5px;
+      font-size:      12px;
+      line-height:    1.2em;
+      .name {
+        font-weight:  bold;
+      }
+    }
+    div.buttons {
+      height:         20px;
+      margin-right:   10px;
+      background-color: #eee;
+      text-align:     right;
+    }
+  }
+}
+
+// infinite scroll loading msg overlay
+#infscr-loading {
+  text-align:     center;
+  z-index:        100;
+  position:       fixed;
+  left:           45%;
+  bottom:         40px;
+  width:          200px;
+  padding:        10px;
+  background:     #000;
+  opacity:        0.8;
+  color:          #FFF;
+  -webkit-border-radius:  10px;
+  -moz-border-radius:     10px;
+  border-radius:          10px;
+}

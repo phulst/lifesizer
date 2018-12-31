@@ -1,0 +1,89 @@
+@import "../mixins";
+
+// outer div, takes up entire browser window
+.stretchedToBrowserWindow {
+  display: block;
+  position:absolute;
+  height:auto;
+  bottom:0;
+  top:0;
+  left:0;
+  right:0;
+  margin: 10px 10px;
+  min-height: 400px;
+  min-width:  600px;
+}
+
+// toolbar that contains slider
+#toolbar {
+  height:         30px;
+  margin:         15px 20px 0 20px;
+  div {
+    float:          left;
+  }
+  .text {
+      margin:       10px 5px 0 5px;
+  }
+  #slider {
+    margin-top:     10px;
+    width:          200px;
+  }
+  .navButton {
+    float:          right;
+  }
+}
+
+#imageContainer {
+  position:     absolute;
+  top:          75px;
+  bottom:       6px;
+  left:         20px;
+  right:        20px;
+  border:       1px solid #444444;
+  overflow: hidden;
+
+  @include rounded;
+  @include shadow;
+
+  img.lifesize {
+    position: absolute;
+    z-index: -10;
+  }
+
+  /**
+  #imgCanvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: transparent;
+  }
+  #canvasOverlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 80;
+  }
+  */
+
+  #arrMsg {
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    height: 24px;
+    z-index: 1000;
+    @include rounded(5px);
+
+    #sizeLabel {
+        position: relative;
+        float: left;
+        height: 20px;
+        color: black;
+        margin: 2px 5px 3px 5px;
+        font-size: 16px;
+        /* padding: 2px; */
+    }
+  }
+}

@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Canvast test</title>
+    <!-- script type="text/javascript" src="/javascripts/jquery-1.1.2-pack.js"></script -->
+    <script type="text/javascript" src="/javascripts/jq/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/ls/jquery.drawarrow.js"></script>
+    
+    <script type="text/javascript">
+      $(function(){ 
+      
+        $('#canvasOff').click(function() {$('#tutorial').resetMode()});
+        $('#gridOn').click(function() {$('#tutorial').showGrid();});
+        $('#arrowOn').click(startDraw);
+        
+        function startDraw() {
+          $('#tutorial').drawArrow({lineWidth: 4, color: 'black'}, $('#arrMsg'), function(){}, 
+            function(start, end, length){ $('#arrMsg').html(length); });         
+        }
+        
+        
+      });
+      
+      
+    </script>
+    
+<style type="text/css" media="screen">
+
+#tutorial {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  left: 0px;
+  top: 0px;
+}
+
+#canvasid {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  z-index: 10;
+}
+#arrMsg {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 14px;
+  border: 1px solid black;
+  background-color: #FFFFFf;
+  text-align: center;
+  font-family: arial, "lucida console", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 100;
+  padding-top: 2px;
+}
+
+    </style>
+  </head>
+  <body>
+    <h1>canvas test</h1>
+ 
+    <div id="canvasid">
+      <img src="http://www.photoaxe.com/wp-content/uploads/2007/07/canon-a570is-front.thumbnail.jpg" width="256" height="192"/>
+      <div id="arrMsg" style="display:none"></div>
+      <canvas id="tutorial" width="500" height="500">
+      </canvas>
+      
+    </div>
+
+    <a href="#" id="gridOn">Grid</a>
+    <a href="#" id="arrowOn">Arrow</a>
+    <a href="#" id="canvasOff">Off</a>
+
+  </body>
+</html>

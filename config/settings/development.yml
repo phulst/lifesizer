@@ -1,0 +1,38 @@
+
+webhost: localhost:3000
+
+cloud_files:
+  enabled:  true
+  containers:
+    lscache:
+      name:     dev-lscache
+      host:     dev-lscache.lifesizer.com
+      cdn_host: devlscache_cdn_host_goes_here
+    images:
+#     name:     dev-images
+#     host:     dev-images.lifesizer.com
+#     cdn_host: dev-images.lifesizer.com
+      name:     images
+      host:     images.lifesizer.com
+      cdn_host: images_cdn_host_goes_here
+    embed:
+      name:     dev-embed
+      host:     dev-embed.lifesizer.com
+      cdn_host: dev-embed_cdn_host_goes_here
+    assets:
+      name:     dev-assets
+      host:     dev-assets.lifesizer.com
+      cdn_host: dev-assets_cdn_host_goes_here
+
+social:
+  disqus:
+    dev_mode: true
+  facebook:
+    app_id:     app_id_goes_here
+    secret:     secret_goes_here
+  google:
+    app_id:     app_id_goes_here
+    secret:     secret_goes_here
+  twitter:
+    app_id:     app_id_goes_here
+    secret:     secret_goes_here

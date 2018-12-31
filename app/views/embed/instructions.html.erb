@@ -1,0 +1,100 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'embed/instructions', :media => 'all' %>
+
+    <!-- begin LifeSizer content -->
+    <script type="text/javascript">
+      var ld = '<%= current_host %>';
+      window.lsAsyncInit = function() {
+        Ls.init({ appKey: '<%=@app_key_for_image%>', user: '<%= @image.user.id %>', host: ld });
+      };
+      (function() {
+        var s = document.createElement('script'); s.async = true; s.type = 'text/javascript';
+        s.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://' + ld + '/assets/embed.js';
+        x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }());
+    </script>
+    <!-- end LifeSizer content -->
+<% end %>
+
+
+<h1>LifeSize embed code</h1>
+
+<p>Once you've added and calibrated some LifeSize images on LifeSizer.com, embedding them on your own site is a breeze.
+Here's how to update your own site to use LifeSize images.</p>
+
+<p>Note that this works with almost every blog, CMS or ecommerce platform that gives you access to the
+HTML templates for your pages. If you need help or more detailed instructions for embedding LifeSizer
+on your site, feel free to <a href="mailto:support@lifesizer.com">contact us</a></p>
+
+<h4>Step 1: add the javascript embed code</h4>
+
+<p>Cut and paste the following content and add this immediately before the closing &lt;/head> tag of your page. <br/>
+You can add this to only those pages on your site that will be linking to LifeSize images, or you can add it to
+your site template. (There are no adverse effects of having the script on pages that don't use LifeSize images)</p>
+
+<span class="embedHeader">LifeSizer embed code for: <%= current_user.email %></span>
+</br>
+
+<textarea id="embedCode">
+
+<!-- begin LifeSizer embed code -->
+<script type="text/javascript">
+window.lsAsyncInit = function() {
+  Ls.init({ appKey: '<%=@app_key%>', user: '<%= current_user.id %>'<%= add_server_check_option %> });
+};
+(function() {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = ('http:' == document.location.protocol) ? 'http://embed.lifesizer.com/ls.js' : 'https://c311378.ssl.cf1.rackcdn.com/ls.js';
+  var x = document.getElementsByTagName('script')[0];
+  x.parentNode.insertBefore(s, x);
+}());
+</script>
+<!-- end LifeSizer embed code -->
+</textarea>
+
+<p>Note that this javascript snippet is specific to your user account, and you can only use it to embed images
+   that belong to your account.</p>
+
+<h4>Step 2: Add your LifeSize links</h4>
+
+<p>Any element in your HTML page can become a link to a LifeSize image. <br/>
+Simply add an attribute called data-ls-ref to the element that you want to become the LifeSize link.
+Its value is the reference that you set (or that was assigned to your image if you didn't set it). <br/>
+
+Tip: to find the reference for a previously added image, look for the 'ref' parameter in the URL in
+the LifeSizer popup window for this image (accessible from your 'My LifeSize Images' page). For example,
+  if you see that this URL contains 'ref=_12' you'll want to add 'data-ls-ref=_12' to the element that
+  should open the LifeSizer popup on mouse click.
+</p>
+
+
+<div class="exampleTable">
+  <div class="leftColumn">
+    <span class="embedHeader">Code</span>
+    <pre > &lt;a href="#" data-ls-ref="<%=@image.image_ref %>">Click to view this in LifeSize &lt;/a> </pre>
+  </div>
+  <div class="rightColumn">
+    <span class="embedHeader">Example</span><br/>
+    <a href="#" data-ls-ref="<%=@image.image_ref %>">Click to view this in LifeSize </a>
+  </div>
+</div>
+<div class="clearBoth"></div>
+
+<p>An example that will show the LifeSize image when clicked on a thumbnail image: </p>
+
+<div class="exampleTable">
+  <div class="leftColumn">
+    <span class="embedHeader">Code</span>
+    <pre> &lt;img src="/images/product_thumb.jpg" data-ls-ref="<%=@image.image_ref %>" ></pre>
+  </div>
+  <div class="rightColumn">
+    <span class="embedHeader">Example</span><br/>
+    <img src="<%=@image.thumb_url%>" data-ls-ref="<%=@image.image_ref%>"/>
+  </div>
+</div>
+<div class="clearBoth"></div>
+
+
+<h4></h4>

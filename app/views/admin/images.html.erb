@@ -1,0 +1,39 @@
+
+<% content_for :head do %>
+  <%= javascript_include_tag 'admin/admin_images_require' %>
+  <%= stylesheet_link_tag 'admin/images', :media => 'all' %>
+<% end %>
+
+
+<h2>Manage images</h2>
+
+<% @images.each do |image| %>
+<div class="image">
+  <div class="thumbnail">
+    <%= thumbnail(image, :type => :medium, :width => 150, :height => 150, :product_images => true) %>
+    <%= link_to "full page view", full_image_view_path(image) %>
+  </div>
+  <div class="metadata" id="image_<%= image.id %>">
+    Title: <%= image.name %><br/>
+    Added: <%= distance_of_time_in_words(Time.now, image.created_at) %> ago <br/>
+    By: <%= image.user.email %><br/>
+    Source: <%= image.source || '' %><br/>
+    Featured: <%= (image.featured == 1) ? "yes" : "no" %><br/>
+    Private: <%= image.private ? "yes" : "no" %>
+  </div>
+  <div class="controls">
+    <%= button_to "featured on/off", {:action => 'change_featured', :id => image }, {:remote => true, :method => :post }  %>
+    <%= button_to "private on/off", {:action => 'change_private', :id => image }, {:remote => true, :method => :post }  %>
+    <%= button_to "delete", {:action => 'delete_image', :id => image}, {:method => :delete, :confirm => 'are you sure you want to delete this image?' }  %>
+    <br/>
+    <%=  link_to "edit", edit_image_path(image) %> /
+    <%=  link_to "demo page", :controller => :demo, :action => :image, :user => image.user, :ref => image.image_ref %>
+
+  </div>
+  <div class="clear"></div>
+</div>
+<% end %>
+
+<nav id="page-nav">
+  <a href="<%= next_page_url %>">next page</a>
+</nav>

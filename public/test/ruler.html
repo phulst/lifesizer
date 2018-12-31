@@ -1,0 +1,71 @@
+<html>
+  <head><title>ruler</title>
+
+  <script src="/javascripts/jq/jquery-1.6.2.min.js" type="text/javascript"></script>
+
+  <!--[if lt IE 9]>
+    <script src="/javascripts/ext/raphael-min.js" type="text/javascript"></script>
+  <![endif]-->
+
+  <script src="/javascripts/ls/jquery.rulergrid.js" type="text/javascript"></script>
+
+  <style type="text/css">
+#ruler {
+    width: 900px;
+    height: 600px;
+}
+  </style>
+
+  <script type="text/javascript">
+    $(function() {
+        /*
+        var G_vmlCanvasManager; // so non-IE won't freak out in canvasInit
+
+        function canvasInit() {
+            var cv = document.getElementById("cv");
+            if (G_vmlCanvasManager != undefined) { // ie IE
+                G_vmlCanvasManager.initElement(cv);
+            }
+
+        if (cv.getContext) {
+                var ctx = cv.getContext('2d');
+                ...
+        } */
+
+	  //rulers($('#ruler'), 110);
+        $('#ruler').rulergrid('init', 84);
+        $('#ruler').rulergrid('rulers');
+        $('#ruler').rulergrid('grid');
+
+        $('#rulerButton').click(function() {
+            var r = $('#ruler');
+            if (r.rulergrid('rulersOn')) {
+                var gridOn = r.rulergrid('gridOn');
+                r.rulergrid('clear');
+                if (gridOn) r.rulergrid('grid');
+            } else {
+                r.rulergrid('rulers');
+            }
+        });
+        $('#gridButton').click(function() {
+            var r = $('#ruler');
+            if (r.rulergrid('gridOn')) {
+                var rulerOn = r.rulergrid('rulersOn');
+                r.rulergrid('clear');
+                if (rulerOn) r.rulergrid('rulers');
+            } else {
+                r.rulergrid('grid');
+            }
+        });
+    });
+
+  </script>
+  </head>
+  <body>
+      <div id="ruler"></div>
+      <p>
+        <input type="button" value="grid" id="gridButton"/>
+        <input type="button" value="ruler" id="rulerButton"/>
+      </p>
+  </body>
+</html>

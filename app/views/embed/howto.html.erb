@@ -1,0 +1,72 @@
+<% content_for :head do %>
+  <%= include_stylesheets :common, :media => 'all' %>
+<% end %>
+
+<div style="width:820px;">
+<h1>How do I embed LifeSizer images on my site?</h1>
+
+<p>Embedding LifeSizer images on your site is easy, and can be done on almost any website, e-commerce or blogging platform.
+HTML or Javascript coding is not required.</p>
+<p>You can create your own LifeSize images and put them on your website in just three steps:</p>
+<br/>
+
+<h4>1. Add one or more LifeSizer images</h4>
+
+<p>
+This may be done on <%= link_to 'right here', new_image_path %> on LifeSizer.com. All you need to have is
+</p>
+
+<ul>
+  <li>
+    The direct URL to the image that you'd like to share in LifeSize.
+  </li>
+  <li>
+    The physical length of the height, width, or of a specific section of the image
+  </li>
+</ul>
+
+<p>
+After you tell us the URL of your image, you can calibrate it for life-size display by simply using your mouse to draw an arrow
+on top of the image. Then simply tell us the true dimensions that this arrow represents.
+</p>
+<br/>
+
+<img src="/images/screenshots/configure.png" style="border:1px solid black;" width="522" height="397"/>
+
+<p>
+In the above screenshot, the user drew an arrow across the horizontal dimensions of the camera, and entered a width of 3.74 inches.
+</p>
+<br/>
+
+<h4>2. Add our embed code to your web page(s)</h4>
+
+<p>We'll give you a small snippet of javascript code to simply cut and paste into your web page template.
+  This will enable the LifeSizer functionality.</p>
+<br/>
+
+
+<h4>3. Make your image, text, or buttons link to your LifeSizer image</h4>
+
+<p>Any link, image or text element can trigger opening the LifeSizer popup window on a user's mouse click.
+  You can refer the images or other links on your site to any of your LifeSizer images you've set up.</p>
+
+<pre>
+  &lt;a href="" <span style="color:red;font-weight:bold;">data-ls-ref="olympus6200"</span>&gt;View in LifeSize&lt;/a&gt;
+</pre>
+<p>
+If you've ever looked at the HTML source of a web page, you probably already know enough to be able to integrate with LifeSizer.
+Any <span class='inline-code'>data-ls-ref</span> attribute that you set will instantly turn your HTML element into a link to our LifeSizer popup.
+</p>
+<br/>
+
+<p><%= link_to "Get your embed code and more detailed instructions", embed_instructions_path, :class => 'big-link' %></p>
+<br/>
+
+<h5>Too complex? Need help?</h5>
+
+Please <%= contact_link 'contact us' %> and we will be happy to help you get set up with LifeSizer.
+We have additional tools and support available that make integration with LifeSizer a breeze even if you have very
+large image libraries.
+
+
+</div>

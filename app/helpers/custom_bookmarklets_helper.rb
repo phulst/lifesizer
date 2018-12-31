@@ -1,0 +1,2 @@
+module CustomBookmarkletsHelper
+end

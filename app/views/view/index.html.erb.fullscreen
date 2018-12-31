@@ -1,0 +1,181 @@
+
+<% content_for :head do %>
+  <%= include_javascripts :view %>
+  <%= include_stylesheets :view, :media => 'all' %>
+<% end %>
+
+<% content_for :script_content do %>
+
+var screenData = <%= raw screen_data %>;
+var screenMatches = <%= raw screen_matches %>;
+
+var LsView = {
+    userId:  '<%= @user_id %>',
+    appKey:  '<%= @app_key %>'
+};
+
+var LsImages = {
+    forRes:  <%= screen_res %>,
+    img:     <%= images_json(@images) %>
+};
+
+var str = {
+    otherScreen: 'not sure / other external display'
+};
+
+<% end %>
+
+<div id="main">
+  <div id="toolbar-left" class="toolbar"></div>
+  <div id="toolbar-main" class="toolbar">
+    <div id="tb-logo" class="tb-element">
+      <a target="_blank" href="http://www.lifesizer.com?uref=<%= @user_id %>"><img src="http://assets.lifesizer.com/img/view/toolbar/logo.png"></a>
+    </div>
+    <div class="tb-element">
+      <div id="slider" title="zoom"></div>
+    </div>
+    <div id="zoomlabel-container" class="tb-element" style="display:none">
+      <span id="zoomlabel"></span>%
+    </div>
+    <div id="lifesize-button-container" class="tb-element">
+      <div id="lifesize-button" class="lifesize-off" title="view in LifeSize">1:1</div>
+    </div>
+    <div class="tb-divider"></div>
+    <div class="tb-element">
+      <div id="settings-button" class="tb-button" title="grid/ruler settings"></div>
+      <div id="measure-tools">
+        <div id="tools-top"></div>
+        <div id="tools-main">
+          <div id="grid-control"  class="mt-button grid-ruler-off" title="show grid"></div>
+          <div id="ruler-control" class="mt-button grid-ruler-off" title="show ruler"></div>
+        </div>
+        <div id="tools-bottom"></div>
+      </div>
+    </div>
+    <div class="tb-divider"></div>
+    <div id="calibrated-icon-container" class="tb-element">
+      <div id="calibrated-icon" class="tb-button" style="display:none"></div>
+      <div id="uncalibrated-icon" class="tb-button" style="display:none"></div>
+    </div>
+    <div id="screen-diam-container" class="tb-element" style="display:none">
+      <span class="screen-diam"></span>"
+    </div>
+    <div class="tb-element tb-right">
+      <div id="close-button" class="tb-button" title="close viewer"></div>
+    </div>
+    <div class="tb-divider tb-right"></div>
+    <div class="tb-element tb-right fullscreen-ctrl">
+      <div id="fullscreen-button" class="tb-button" title="full screen toggle"></div>
+    </div>
+    <div class="tb-divider tb-right fullscreen-ctrl"></div>
+  </div>
+  <div id="toolbar-right" class="toolbar"></div>
+
+  <div id="warning-bar" style="display:none">
+    <div id="warning-message">
+      <div>
+      You may not be seeing this in its actual size. <strong>Click here to fix this</strong>
+      </div>
+    </div>
+  </div>
+
+  <div id="image-box">
+    <% if flash[:error] %>
+        <p id="flash_error"><%= flash[:error] %></p>
+    <% else %>
+        <%= lifesize_img(@images[0]) %>
+    <% end %>
+    <div id="ruler"></div>
+    <div id="hor_thumb_container"><div id="thumbs"></div></div>
+  </div>
+
+</div>
+
+<!-- content for tooltips -->
+<div id="calibration-bubble" style="display:none">
+  <div id="uncalibrated-tt-wrapper">
+    <div id="tt-uncalibrated">
+      <span class="tt-title-uncal">Your screen size is unknown</span><br/>
+      Click here to set up your screen<br/>for LifeSize display
+    </div>
+  </div>
+</div>
+
+<div id="lightbox"></div>
+<div id="suggestions-dialog" class="dialog" style="display:none">
+  <!-- div class="dialog-close-button"></div -->
+  <div class="dialog-content">
+    <h1>Want to see this in its actual size?</h1>
+    <p>Please tell us on what type of screen you are viewing this page...</p>
+    <hr/>
+    <div id="mac-choose-msg">Please select your screen type</div>
+    <div id="suggestions-form">
+      <form>
+      </form>
+    </div>
+    <hr/>
+    <div id="suggest-btn-continue" class="button blue-button">continue</div>
+    <div id="suggest-btn-cancel" class="button gray-button">not now</div>
+  </div>
+</div>
+<div id="calibration-start-dialog" class="dialog" style="display:none">
+  <!-- div class="dialog-close-button"></div -->
+  <div class="dialog-content">
+    <h1>View this in life-size</h1>
+    <p>﻿To display this image in actual size, we need some help to determine your screen size. This will only take a second..</p>
+    <hr/>
+    <div id="start-btn-continue" class="button blue-button">continue</div>
+    <div id="start-btn-cancel" class="button gray-button">not now</div>
+  </div>
+</div>
+
+
+<div id="calibration-view" style="display:none">
+  <div id="cal-description">
+      <div id="step1" class="step-one">
+          From the objects below, please select one that you have nearby. <br/>
+          <span class="small-text">(you'll only need this for a quick size comparison)</span>
+      </div>
+      <div id="step2_cd" class="step-two">
+          Hold your CD up against the screen, then use the slider (or scroll) to resize <br/>
+          until both CDs are exactly the same size.
+      </div>
+      <div id="step2_dollar" class="step-two">
+          Hold your note (any value will do) up against the screen, then use the slider (or scroll) to resize
+          until both notes are exactly the same size.
+      </div>
+      <div id="step2_creditcard" class="step-two">
+          Hold your bank card or driver's license up against the screen, then use the slider (or scroll) to resize
+          until both cards are exactly the same size.
+      </div>
+      <div id="step2_measure" class="step-two">
+          Hold your ruler or tape up against the screen. Then use the slider (or scroll) to resize
+          the image until the numbers line up exactly with your ruler.
+      </div>
+  </div>
+  <hr/>
+  <div id="cal-slider"></div>
+
+  <div id="image-selection">
+    <img id="creditcard" class="calibration-image"/>
+    <img id="dollar" class="calibration-image"/>
+    <img id="cd" class="calibration-image"/>
+    <img id="measure" class="calibration-image"/>
+
+    <div id="creditcard-txt" class='calTitle'>bank card or<br/>driver's license</div>
+    <div id="cd-txt" class='calTitle'>CD or DVD</div>
+    <div id="dollar-txt" class='calTitle'>any US money bill</div>
+    <div id="measure-txt" class='calTitle'>ruler or<br/>measuring tape</div>
+
+    <div id="btn-step-one">
+      <div id="calibrate-btn-cancel" class="button gray-button">cancel</div>
+    </div>
+    <div id="btn-step-two" style="display:none">
+      <div id="calibrate-btn-back" class="button gray-button">go back</div>
+      <div id="calibrate-btn-finish" class="button blue-button">I'm done, it shows in actual size now</div>
+    </div>
+
+  </div>
+  
+  <img id="full-cal-image"/>
+</div>

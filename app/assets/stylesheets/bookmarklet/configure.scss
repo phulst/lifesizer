@@ -1,0 +1,126 @@
+@import "../mixins";
+@import "../globals";
+
+/** toolbar css */
+#ls-modal-content {
+
+  .ls-toolbar {
+    position:           absolute;
+    height:             38px;
+    //top:                5px;
+    background-repeat:  no-repeat;
+  }
+  /* left edge of toolbar */
+  #ls-toolbar-left {
+    left:               5px;
+    background-image:   url('#{$assetHost}/img/view/toolbar/bg/bar-left-end.png');
+    width:              6px;
+  }
+  /* right edge of toolbar */
+  #ls-toolbar-right {
+    right:              5px;
+    background-image:   url('#{$assetHost}/img/view/toolbar/bg/bar-right-end.png');
+    width:              6px;
+  }
+  /* main toolbar content */
+  #ls-toolbar-main {
+    background-image:   url('#{$assetHost}/img/view/toolbar/bg/bar-bg-repeat.png');
+    background-repeat:  repeat-x;
+    left:               11px;
+    right:              11px;
+    font-size:          13px;
+    color:              #e8e8e8;
+    text-align:         center;
+
+    /* toolbar element */
+    .ls-tb-element {
+      position:         relative;
+      float:            left;
+      padding-top:      6px;
+      padding-left:     6px;
+    }
+    .ls-tb-right {
+        float:          right !important;
+    }
+
+    #ls-toolbar-title {
+      margin-top:       2px;
+      text-align:       center;
+      font-size:        16px;
+      font-family:      $fontFamily;
+      color:            black;
+      align:            center;
+    }
+
+    /* button element on toolbar */
+    .ls-tb-button {
+      width:                30px;
+      height:               20px;
+      background-repeat:    no-repeat;
+      cursor:               pointer;
+    }
+    .ls-tb-divider {
+      height:               100%;
+      width:                2px;
+      margin-left:          5px;
+      margin-right:         5px;
+      background-image:     url('#{$assetHost}/img/view/toolbar/bg/bar-vertical-line.png');
+      background-repeat:    no-repeat;
+      float:                left;
+    }
+
+    /* logo css */
+    #ls-tb-logo {
+      width:                104px;
+      height:               25px;
+      margin:               0 4px 0 0;
+    }
+    /* close button on right */
+    #ls-close-button {
+      width:                25px;
+      margin-top:           5px;
+      margin-left:          2px;
+      background-image:     url('#{$assetHost}/img/view/toolbar/close.png');
+    }
+  }
+
+  #ls-scrollable-content {
+    position:               absolute;
+    top:                    44px;
+    bottom:                 0px;
+    left:                   0px;
+    width:                  100%;
+    //min-height:             300px;
+    //height:                 100%;
+    overflow-y:             scroll;
+  }
+  /* area under toolbar for selecting images */
+  #ls-select-images {
+    height:                 100%;
+    width:                  100%;
+
+    .ls-select-image {
+      //position:
+      margin:         10px;
+      float:          left;
+      height:         150px;
+      width:          150px;
+      border:         2px solid #e0e0e0;
+
+      &:hover {
+        border-color: #278ab2;
+        cursor:       pointer;
+      }
+
+      img {
+        max-height:     150px;
+        max-width:      150px;
+        display:        block;
+        margin-left:      auto;
+        margin-right:     auto;
+
+        //width:        auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+
+This repository contains the source code previously owned by LifeSizer, Inc.
+
+This (Ruby on Rails) application used to power LifeSizer.com, which was
+shut down as of 12/31/2018 along with the dissolution of LifeSizer, Inc.
+
+Its code has been released into the public domain using the Unlicense (http://unlicense.org)
+
+Passwords, API keys and other sensitive information have been removed, as
+well as any customer identifiable information (such as customer specific
+presentations and demos).
+
+DISCLAIMER:
+
+While you may use this source code in any way you see fit, this project was
+not developed as an open source project. Configuration isn't very well
+centralized and there are many references to lifesizer.com host names throughout
+the code. The code may use deprecated APIs to communicate with 3rd party services,
+and is lacking documentation.
+
+Most of this code was written in 2011-2012, and this project uses frameworks
+and other libraries that may be over 8 years old.

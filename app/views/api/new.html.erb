@@ -1,0 +1,25 @@
+<h1>Application key setup</h1>
+
+<div style="width:700px">
+
+<p>
+Before we can generate the code snippet for you to include on your site, we need to know
+which internet hosts you intend to use LifeSizer on.
+</p>
+
+<p>
+You can enter multiple domains separated by commas, ie: <br/>
+<span class="inline-code">'mydomain.com, store.otherdomain.com'</span>
+</p>
+<br/>
+
+<h6>On what internet hosts do you intend to use LifeSizer?</h6   >
+
+<%= form_for @api_key, :url => { :action => "create" }, :html => {:class => 'lsform'} do |f| %>
+  <%= f.text_area :hostname, :size => "60x4" %><br/>
+  <%= f.submit "Submit" %>
+<% end %>
+
+</div>
+
+

@@ -1,0 +1,54 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'google/google_search_require' %>
+  <%= stylesheet_link_tag 'google/google_search_require', :media => 'all' %>
+<% end %>
+
+<% content_for :script_content do %>
+    lsUser = '557';
+
+    <!-- begin LifeSizer embed code -->
+    window.lsAsyncInit = function() {
+      Ls.init({ appKey: 'ls_app_key', user: lsUser, serverCheck: true, overlayButtonType: 5,
+        host: '<%= current_host %>',  lsCacheHost: '<%= cache_host %>' });
+    };
+    (function() {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = ('http:' == document.location.protocol) ? "<%= embed_script_url(false) %>" : "<%= embed_script_url(true) %>";
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    }());
+    <!-- end LifeSizer embed code -->
+<% end %>
+
+<h1>Search Google Shopping</h1>
+
+<%= form_tag("/google_search", :method => "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+<% if @products.nil? || @products.empty? %>
+<p>No results found</p>
+<% else %>
+
+    <div id="container">
+      <% for product in @products %>
+      <div class="ls_item">
+        <div class="image-column">
+          <%= product_image(product, 0) %>
+          <div><a style="cursor:pointer" class="calibrate_link">calibrate</a></div>
+        </div>
+        <div class="desc-column">
+          <p class="product-name"><%= product.name %></p>
+          <p class="dimensions">image dimensions: <span class="image-dims"></span> (<%= product.image_urls.length %>)</p>
+          <p class="seller">Sold by: <a href="<%= product.product_url %>" target="_blank"><%= product.seller %></a></p>
+          <p class="description"><%= product.description %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+<% end %>

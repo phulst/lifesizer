@@ -1,0 +1,6 @@
+<a href="#"><div class="img-nav-btn previous hidden">
+  <span aria-hidden="true" class="icon-arrow-left-2"></span>
+</div></a>
+<a href="#"><div class="img-nav-btn next hidden">
+  <span aria-hidden="true" class="icon-arrow-right-2"></span>
+</div></a>

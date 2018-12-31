@@ -1,0 +1,251 @@
+<% content_for :dependencies do %>
+  <link type="text/css" href="/stylesheets/impromptu.css" rel="Stylesheet" />  
+  <%= javascript_include_tag "jquery.windowmsg-1.0.js" %>
+  <%= javascript_include_tag "ls/jquery.drawarrow.js" %>
+  <%= javascript_include_tag "jq/jquery-impromptu.3.1.min" %>
+  <%= javascript_include_tag "jquery.json-2.2.js" %>
+<% end -%>
+
+<% content_for :style_content do %>
+
+    #buttons {
+      float:left;
+    }
+    #slider {
+      float: left;
+      width: 200px;
+      margin-left: 20px;
+      margin-top:  10px;
+    }
+    #scaleTxt {
+      margin-left: 10px;
+      margin-top: 5px;
+      float: left;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+ /* highlight on length input form element ('arrowSize') */
+ input.error{ border: solid 2px #ff0000; }
+
+#imgCanvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  #border: 1px solid;
+  #width: 820;
+  #height: 620;
+}
+
+*/
+#introMsg {
+  /* position: absolute; */
+  width: 710px;
+  height: 90px;
+  background: #FFFFFF;
+}
+#introOuter {
+  position: absolute;
+  top: 492px;
+  left: 30px;
+}
+#introText {
+  margin: 3px 5px 2px 8px;
+}
+
+#arrMsg {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 14px;
+  border: 1px solid black;
+  background-color: #FFFFFf;
+  text-align: center;
+  font-family: arial, "lucida console", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 100;
+  padding-top: 2px;
+}
+*/
+<% end %>
+
+
+<% content_for :script_content do %>
+
+$(function() {
+
+  MIN_SCALE = 10;
+  MAX_SCALE = 400;
+
+  var selectionData = {}
+
+  // initialize as lifesize image
+  $('.lifesize').lifesizeInit();
+
+  // recenter the image if window is resized
+  $(window).resize(function() {
+    $('.lifesize').centerInParent();
+  });
+
+  // display tip dialog
+  $.prompt($('#initMsg').html());
+
+  // register and handle key and mousewheel events to control image zoom
+  $('#outer').listenControls(doZoom);
+
+  // fired on cursor or mousewheel up
+  function doZoom(delta) {
+    $('#imgCanvas').clearCanvas(); // remove any visible arrow
+
+    // delta appears to be in increments of 0.33, so multiply by 3 to get int steps
+    var steps = Math.round(delta * 3);
+    scale = $('.lifesize').getScale();
+    newScale = scale + steps;
+    if (newScale < MIN_SCALE) newScale = MIN_SCALE; // keep scale within bounds
+    if (newScale > MAX_SCALE) newScale = MAX_SCALE;
+    updateScale(newScale);
+    $("#slider").slider( "option", "value", newScale);
+  }
+
+  // triggered if zoom scale gets updated through various means
+  function updateScale(newScale) {
+    ls = $('.lifesize');
+    scale = ls.getScale();
+    if (newScale != scale) {
+      ls.scale(newScale);
+      $('#scale').html(newScale);
+    }
+  }
+
+  // set up slider
+  $("#slider").slider({
+    min: MIN_SCALE,
+    max: MAX_SCALE,
+    value: 100,
+    slide: function(event, ui) {
+      updateScale(ui.value);
+    }
+  });
+
+  /**
+   * calculates the actual x and y positions in the actual image that would
+   * correspond to an arrow start or end position as drawn
+   * @param position start or end position of arrow (relative to imageBox parent container)
+   * @return x and y coordinates (from left top) in actual lifesize image that this
+   * arrow position would correspond with
+   */
+  function calcPositionInImage(position) {
+    var img = $('#mainLifeSizeImg');
+    var lifeSizePos = img.position();
+    var top  = (position.y - lifeSizePos.top)  * img.originalHeight() / img.height();
+    var left = (position.x - lifeSizePos.left) * img.originalWidth()  / img.width();
+    return { y: Math.round(top), x: Math.round(left) };
+  }
+
+  /**
+   * this handler is called upon arrow draw complete
+   * @param start start coordinate of arrow (relative to imageBox)
+   * @param end end coordinate of arrow
+   * @param length length of arrow in screen pixels
+   */
+  function arrowComplete(start, end, length) {
+    var imgArrowStart = calcPositionInImage(start);
+    var imgArrowEnd = calcPositionInImage(end);
+    //console.log("arrow drawn from " + imgArrowStart.x + "," + imgArrowStart.y + " to " +
+    //    imgArrowEnd.x + "," + imgArrowEnd.y + " on original.");
+
+    selectionData = { start: imgArrowStart, end: imgArrowEnd, pixLength: length};
+    //console.dir(selectionData);
+    
+    // display prompt length dialog
+    $.prompt($('#sizePrompt').html(), {
+      top: '10%',
+      show: 'slideDown',
+      buttons: { Ok: true, Cancel: false },
+      submit: function(ok,m,f) {
+        // pre-submit handler, used to validate length input
+        var flag = true;
+        if (ok) {
+          var size = f.arrowSize.replace(',', '.');
+          var length = parseFloat(size);
+          if (!length || length <= 0) {
+            m.find('#arrowSize').addClass('error');
+            flag = false;
+          } else {
+            m.find('#arrowSize').removeClass('error');
+          }
+        }
+        return flag;
+      },
+      callback: function(ok,m,f){
+        if (ok) {
+          //var size = f.arrowSize.replace(',', '.');
+          var size = f.arrowSize;
+          var unit = f.unit;
+          selectionData.physLength = parseFloat(size);
+          selectionData.unit = unit;
+          selectionData.renderWidth = $('#mainLifeSizeImg').width();
+          selectionData.renderHeight = $('#mainLifeSizeImg').height();
+          // send event back to main window and close
+          $.triggerParentEvent("configureEvt", $.toJSON(selectionData));
+	      self.close();
+        } else {
+          // action cancelled
+          $('#imgCanvas').clearCanvas();
+        }
+      }
+    });
+  }
+
+  // set up for arrow draw
+  $('#imgCanvas').drawArrow({lineWidth: 4, color: '#84a800'}, $('#arrMsg'), arrowComplete);
+
+  /** no longer used
+  function calcNewLinePoints(start, end, os, ns) {
+    cx = $('#imgCanvas').width() / 2;
+	cy = $('#imgCanvas').height() / 2;
+    sx = (start.x > cx) ? (cx + ((start.x - cx) * ns/os)) : (cx - ((cx - start.x) * ns/os));
+    sy = (start.y > cy) ? (cy + ((start.y - cy) * ns/os)) : (cy - ((cy - start.y) * ns/os));
+    ex = (end.x > cx) ? (cx + ((end.x - cx) * ns/os)) : (cx - ((cx - end.x) * ns/os));
+    ey = (end.y > cy) ? (cy + ((end.y - cy) * ns/os)) : (cy - ((cy - end.y) * ns/os));
+	return {start: {x:sx, y:sy}, end: {x:ex, y:ey}};
+  } */
+});
+
+
+<% end %>
+
+
+<% content_for :toolbar do %>
+<!--
+    <div id="buttons">
+      <button id="calibrate">Calibrate your screen</button> &nbsp;&nbsp;
+      <button id="showLifesize" title="lifesize!">1:1</button>
+    </div>
+     -->
+    <div id="slider"></div>
+<!--  <div id="scaleTxt"><span id="scale">100</span>%</span></div> -->
+
+<% end -%>
+
+<!-- dialog contents -->
+<div id="dialogs" style="display:none">
+  <div id="initMsg">
+    Please click and drag on any part of the image to draw a line for which you know the actual dimensions.
+    (ie. draw from the left to the right edge of the object if you know the width)
+  </div>
+  <div id="sizePrompt">
+    <p>Please tell us the actual length of the arrow you've drawn, in inches or centimeters.</p>
+    <input type="text" id="arrowSize" name="arrowSize" size="5"/>
+    <select name="unit">
+      <option value="in">inches</option>
+      <option value="cm">cm</option>
+    </select>
+  </div>
+</div>
+
+
+<%= lifesize_new_image(@image_url, @width, @height, @render_width, @render_height, @scale, :id => 'mainLifeSizeImg' ) %>
+<div id="arrMsg" style="display:none"></div>

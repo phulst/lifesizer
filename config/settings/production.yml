@@ -1,0 +1,39 @@
+
+webhost: beta.lifesizer.com
+
+uploader:
+  root_dir:       content/uploads/ls_img
+  identify_path:  /usr/bin/identify
+
+cloud_files:
+  enabled:  true
+  containers:
+    lscache:
+      name:     lscache
+      host:     lscache.lifesizer.com
+      cdn_host: lscache_cdn_host_goes_here
+    images:
+      name:     images
+      host:     images.lifesizer.com
+      cdn_host: images_cdn_host_goes_here
+    embed:
+      name:     embed
+      host:     embed.lifesizer.com
+      cdn_host: embed_cdn_host_goes_here
+    assets:
+      name:     assets
+      host:     assets.lifesizer.com
+      cdn_host: assets_cdn_host_goes_here
+
+social:
+  disqus:
+    dev_mode: false
+  facebook:
+    app_id:     app_id_goes_here
+    secret:     secret_goes_here
+  google:
+    app_id:     app_id_goes_here
+    secret:     secret_goes_here
+  twitter:
+    app_id:     app_id_goes_here
+    secret:     secret_goes_here

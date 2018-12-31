@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LifeSizer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+  <%= javascript_include_tag google_jquery %>
+  <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+  <%= javascript_include_tag 'view/mobile_require' %>
+  <%= stylesheet_link_tag 'view/mobile_view', :media => 'all' %>
+
+  <%= render :partial => "layouts/favicon", :formats => [:html] %>
+  <%= render :partial => "layouts/ga", :formats => [:html] %>
+</head>
+<body>
+
+<div id="wrapper" data-role="page" data-fullscreen="true">
+
+  	<div data-role="header" data-theme="d" data-position="fixed">
+        <img id="logo" src="http://assets.lifesizer.com/img/mobile/logo150.png" border="0" height="30" style="float:left;margin-top:5px;margin-left:8px;"/>
+		<h1></h1>
+        <a id="close-button" href="#" data-icon="delete" data-iconpos="right" class="ui-btn-right" data-theme="a">close</a>
+	</div><!-- /header -->
+
+  <% if @mobile_match %>
+    <div id="device-msg" class="banner-msg">In actual size on your <%= @mobile_device_name %></div>
+  <% else %>
+    <div id="alert-msg" class="ui-bar ui-bar-e banner-msg">
+      <h3 style="display:inline-block; width:92%; margin-top:5px;">Unable to detect your mobile device</h3><div style="display:inline-block; width:8%; margin-top:0px; text-align:right;"><a href="#" id="hide-alert" data-role="button" data-icon="delete" data-inline="true" data-iconpos="notext">Dismiss</a></div>
+      <p style="font-size:85%; margin:-.3em 0 1em;">This image may not be showing in its actual size.</p>
+    </div>
+  <% end %>
+
+	<div id="content" data-role="content">
+
+      <% if flash[:error] %>
+        <p id="flash_error"><%= flash[:error] %></p>
+      <% else %>
+
+        <%= lifesize_img(@images[0]) %>
+      <% end %>
+
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+<div id="device-select" data-role="dialog" data-close-btn="none">
+  <div data-role="header" data-theme="d">
+    <h1>your iPad</h1>
+  </div>
+  <div data-role="content" data-theme="c">
+    <h1>Select your iPad</h1>
+    <p>What iPad model are you viewing this on?</p>
+    <a id="ipad" href="#wrapper" data-role="button" data-rel="back" data-theme="b">iPad (9.7inch display)</a>
+    <a id="ipad-mini" href="#wrapper" data-role="button" data-rel="back" data-theme="b">iPad Mini</a>
+  </div>
+</div>
+
+
+</body>
+</html>

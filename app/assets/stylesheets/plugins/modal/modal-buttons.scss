@@ -1,0 +1,65 @@
+@import "../../globals";
+@import "../../mixins";
+
+/** base style for buttons */
+.ls-button {
+  font-family:      $fontFamily !important;
+  font-weight:      bold;
+  border:           none;
+  display:          inline;
+  color:            #FFF !important;
+  font-size:        12px;
+  font-weight:      500;
+  /* text-shadow:      0px -1px 0px #124d84; */
+  padding:          5px 10px 5px 10px;
+  margin:           5px;
+  height:           28px;
+  cursor:           pointer;
+  @include rounded(3px);
+
+  &:hover {
+    color:            white;
+  }
+}
+
+.ls-blue-button {
+  @extend .ls-button;
+  background-image: linear-gradient(bottom, rgb(1,111,221) 43%, rgb(0,149,255) 91%);
+  background-image: -o-linear-gradient(bottom, rgb(1,111,221) 43%, rgb(0,149,255) 91%);
+  background-image: -moz-linear-gradient(bottom, rgb(1,111,221) 43%,rgb(0,149,255) 91%);
+  background-image: -webkit-linear-gradient(bottom, rgb(1,111,221) 43%, rgb(0,149,255) 91%);
+  background-image: -ms-linear-gradient(bottom, rgb(1,111,221) 43%,rgb(0,149,255) 91%);
+  background-image: -webkit-gradient(
+       linear,
+       left bottom,
+       left top,
+       color-stop(0.43, rgb(1,111,221)),
+       color-stop(0.91, rgb(0,149,255))
+  );
+  background-color: #016fdd;
+  &:disabled {
+    background-image: none;
+    background-color: #999;
+    color:            #666;
+    cursor:           default;
+  }
+  /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#016fdd, endColorstr=#0095ff)"; */
+}
+
+.ls-gray-button {
+  @extend .ls-button;
+  background-image: linear-gradient(bottom, rgb(69,69,69) 11%, rgb(87,87,87) 91%);
+  background-image: -o-linear-gradient(bottom, rgb(69,69,69) 11%, rgb(87,87,87) 91%);
+  background-image: -moz-linear-gradient(bottom, rgb(69,69,69) 11%, rgb(87,87,87) 91%);
+  background-image: -webkit-linear-gradient(bottom, rgb(69,69,69) 11%, rgb(87,87,87) 91%);
+  background-image: -ms-linear-gradient(bottom, rgb(69,69,69) 11%, rgb(87,87,87) 91%);
+
+  background-image: -webkit-gradient(
+       linear,
+       left bottom,
+       left top,
+       color-stop(0.11, rgb(69,69,69)),
+       color-stop(0.91, rgb(87,87,87))
+  );
+  background-color: #454545;
+}

@@ -1,0 +1,53 @@
+<% content_for :added_scripts do %>
+<%= javascript_include_tag 'ls/lifesizer' %>
+<% end %>
+
+<% content_for :script_content do %>
+
+//  $.pollScreen(0,0, function(w,h){alert("new dim " + w + "x" + h);});
+
+// make thumbnails lifesizeable
+lifesizer({ account: "1",
+            host: "<%= current_host %>"
+          });
+
+$(function() {
+  //$('td').tooltip();
+});
+
+<% end %>
+
+
+
+<h1>Your images</h1>
+
+<% if @images.nil? %>
+<p>You don't have any images yet</p>
+<% else %>
+
+<table>
+
+<% for image in @images %>
+  <tr>
+    <td class="col_thumbnail"><%= thumbnail(image) %></td>
+    <td class="col_name">
+      <div class="image_name"><%= image.name %></div>
+	  <div class="image_description"><%= image.description %></div>
+	</td>
+    <td class="col_dimensions">
+      <%= image.width %>x<%= image.height %><br/>
+	  <%= image.ppi %> ppi
+	</td>
+    <td><!-- %= link_to 'Show', user_image_path(image.user, image) %><br/-->
+        <!-- %= link_to 'Edit', edit_user_image_path(image.user, image) %><br/-->
+        <%= button_to "Delete", image_path(image), :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<% end %>
+
+<br />
+
+<%= link_to 'Add an image', images_add_image_path %>

@@ -1,0 +1,39 @@
+
+webhost: staging.lifesizer.com
+
+uploader:
+  root_dir:       content/uploads/ls_img
+  identify_path:  /usr/bin/identify
+
+cloud_files:
+  enabled:  true
+  containers:
+    lscache:
+      name:     staging-lscache
+      host:     staging-lscache.lifesizer.com
+      cdn_host: staging-lscache.lifesizer.com
+    images:
+      name:     staging-images
+      host:     staging-images.lifesizer.com
+      cdn_host: staging-images.lifesizer.com
+    embed:
+      name:     staging-embed
+      host:     staging-embed.lifesizer.com
+      cdn_host: staging-embed.lifesizer.com
+    assets:
+      name:     staging-assets
+      host:     staging-assets.lifesizer.com
+      cdn_host: staging-assets.lifesizer.com
+
+social:
+  disqus:
+    dev_mode: true
+  facebook:
+    app_id:     app_id_goes_here
+    secret:     secret_goes_here
+  google:
+    app_id:     app_id_goes_here
+    secret:     secret_goes_here
+  twitter:
+    app_id:     app_id_goes_here
+    secret:     secret_goes_here

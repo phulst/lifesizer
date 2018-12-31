@@ -1,0 +1,1 @@
+$("#image_<%=@image.id%>").html("<%= escape_javascript(render(:partial => 'admin/imageinfo', :locals => { :image => @image })) %>");

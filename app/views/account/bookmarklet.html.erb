@@ -1,0 +1,21 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'account/bookmarklet', :media => 'all' %>
+<% end %>
+
+<h2>Your bookmarklet for <%= @key.hostname %></h2>
+
+<!-- div id="bm_arrow"><img src="/images/icons/bm_arrow.gif" height="348" width="344"/></div -->
+<p>
+Adding lifesizer images to your site is simple and quick with our new bookmarklet. <br/>
+You'll be able to lifesize images without having to leave your own web site!
+</p>
+
+<ol class="bm_steps">
+    <li>Drag the following link to your bookmarks/favorites toolbar:
+        <%=  render 'bm_code_js' %>
+    </li>
+    <li>Watch the screencast below. It will show you how to lifesize your images in mere seconds. </li>
+</ol>
+
+<br/>
+<object id="scPlayer" width="952" height="645" type="application/x-shockwave-flash" data="http://content.screencast.com/users/sfpeter/folders/Default/media/80a2f0c0-48b0-48e3-bdfb-0f9d49d5d8da/bootstrap.swf" > <param name="movie" value="http://content.screencast.com/users/sfpeter/folders/Default/media/80a2f0c0-48b0-48e3-bdfb-0f9d49d5d8da/bootstrap.swf" /> <param name="quality" value="high" /> <param name="bgcolor" value="#FFFFFF" /> <param name="flashVars" value="thumb=http://content.screencast.com/users/sfpeter/folders/Default/media/80a2f0c0-48b0-48e3-bdfb-0f9d49d5d8da/FirstFrame.jpg&containerwidth=1360&containerheight=921&content=http://content.screencast.com/users/sfpeter/folders/Default/media/80a2f0c0-48b0-48e3-bdfb-0f9d49d5d8da/LifeSizerCalibration.swf&blurover=false" /> <param name="allowFullScreen" value="true" /> <param name="scale" value="showall" /> <param name="allowScriptAccess" value="always" /> <param name="base" value="http://content.screencast.com/users/sfpeter/folders/Default/media/80a2f0c0-48b0-48e3-bdfb-0f9d49d5d8da/" /> Unable to display content. Adobe Flash is required.</object>

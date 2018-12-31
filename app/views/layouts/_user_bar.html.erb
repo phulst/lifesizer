@@ -1,0 +1,11 @@
+<!-- START USER SIGN-IN BAR -->
+<div class="panel">
+  <p><% if user_signed_in? %>
+        <% if current_user.admin? || session[:admin] %><%= link_to 'admin', admin_index_path %> | <% end %>
+       welcome <%= current_user.display_name %>&nbsp; | &nbsp; <%= link_to('sign out', destroy_user_session_path, :method => :delete) %>
+    <% else %>
+        not logged in &nbsp; | <%= link_to "sign in", new_user_session_path %>
+    <% end %>
+  </p>
+</div>
+<!-- END USER SIGN-IN BAR -->

@@ -1,0 +1,72 @@
+<% content_for :script_content do %>
+var ppi = <%= @ppi %>;
+var backUrl = "<%= raw @back_url %>";
+<% end %>
+
+<div id="content">
+
+    <div id="description">
+        <div id="step1" class="stepOne">
+            From the objects below, please select one that you have nearby. <br/>
+            <span class="smalltext">(you'll only need this for a quick size comparison)</span>
+        </div>
+        <div id="step2_cd" class="stepTwoText">
+            Hold your CD up against the screen, then use the slider (or mouse scroll) to resize <br/>
+            until both CDs are exactly the same size.
+        </div>
+        <div id="step2_onedollar" class="stepTwoText">
+            Hold your note (any value will do) up against the screen, then use the slider (or mouse scroll) to resize
+            until both notes are exactly the same size.
+        </div>
+        <div id="step2_creditcard" class="stepTwoText">
+            Hold your bank card or US Driver's license up against the screen, then use the slider (or mouse scroll) to resize
+            until both cards are exactly the same size.
+        </div>
+        <div id="step2_ruler" class="stepTwoText">
+            Hold your ruler or tape up against the screen. Then use the slider (or mouse scroll) to resize
+            the image until the numbers line up exactly with your ruler.
+        </div>
+    </div>
+
+    <div id="slider"></div>
+
+    <div id="imageselections">
+        <div class="row">
+            <div class="calibrate" ><a href="#mn">
+                <img id="onedollar" src="/images/cal/ref/1dollar.jpg"  width="170" height="74"/>
+                <div class='calTitle'>any US money bill</div>
+            </a></div>
+            <div class="calibrate" ><a href="#cd">
+                <img id="cd" src="/images/cal/ref/cd.jpg" width="170" height="171"/>
+                <div class='calTitle'>a CD or DVD</div>
+            </a></div>
+        </div>
+        <div class="clear"></div>
+        <div class="row">
+            <div class="calibrate" ><a href="#cc">
+                <img id="creditcard" src="/images/cal/ref/cc.jpg" width="170" height="107"/>
+                <div class='calTitle'>a bank card or<br/>driver's license</div>
+            </a></div>
+            <div class="calibrate" ><a href="#rl">
+                <img id="ruler" src="/images/cal/ref/ruler_short.jpg" width="170" height="61"/>
+                <div class='calTitle'>a ruler or<br/>measuring tape</div>
+            </a></div>
+        </div>
+    </div>
+
+    <div id="buttonBar">
+        <a href="#" id="backButton">go back</a>
+        <a href="#" id="doneButton">I'm done, it shows in actual size now</a>
+    </div>
+
+    <form id="calForm" action="<%= calibrate_done_url %>" method="POST" >
+        <input id="formUrl" type="hidden" name="item_url" value="<%= @back_url %>" />
+        <input id="formImg" type="hidden" name="img" />
+        <input id="formWc"  type="hidden" name="wc" />
+        <input id="formWs"  type="hidden" name="ws" />
+        <input id="formP"   type="hidden" name="p" />
+    </form>
+</div>
+
+<!-- full res images -->
+<img id="lifesize" src="" width="0" height="0"/>

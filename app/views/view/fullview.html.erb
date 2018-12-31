@@ -1,0 +1,78 @@
+
+<% content_for :head do %>
+<link rel="canonical" href="<%= canonical_url %>"/>
+
+<meta property="fb:app_id" content="enter_fb_app_id" />
+<meta property="og:type"   content="lifesizer:lifesizer_image" />
+<meta property="og:url"    content="<%= canonical_url %>" />
+<meta property="og:title"  content="<%= social_title(@image) %>" />
+<meta property="og:image"  content="<%= "http://#{current_host}#{@image.thumb_url}" %>" />
+<meta property="og:description" content="View products and other images in their actual size on LifeSizer.com" />
+
+
+<script type="text/javascript">
+  function facebookShare() {
+      FB.api(
+        '/me/lifesizer:share', 'post', { lifesizer_image: '<%= canonical_url %>' }, function(response) {
+           if (!response || response.error) {
+              alert('Error occurred');
+           } else {
+              alert('Cook was successful! Action ID: ' + response.id);
+           }
+      });
+  }
+</script>
+<% end %>
+
+
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : 'enter_fb_app_id', // App ID
+        status     : true, // check login status
+        cookie     : true, // enable cookies to allow the server to access the session
+        xfbml      : true  // parse XFBML
+      });
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+</script>
+
+<!-- fb:login-button show-faces="true" width="200" max-rows="1" scope="publish_actions">
+<fb:login-button -->
+
+<fb:like send="false" width="450" show_faces="false" data-layout="button_count" font="lucida grande" ref='full'></fb:like>
+<p></p>
+
+<iframe src="<%= view_path(:user => @image.user_id, :ref => @image.image_ref) %>" height="500" width="1000" frameborder="1"></iframe>
+<!-- <iframe src="http://localhost:3000/test/screen/index.html" height="500" width="1000" frameborder="1"></iframe> -->
+
+<!-- button onclick="facebookShare()">share on Facebook</button -->
+
+<p></p>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'lifesizer';
+  var disqus_identifier = 'images/<%= @image.guid %>';
+  var disqus_url = '<%= url_for(:only_path => false) %>';
+  var disqus_title = '<%= social_title(@image) %>';
+  <% if Settings.social.disqus.dev_mode %>
+  var disqus_developer = 1; // developer mode is on
+  <% end %>
+
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

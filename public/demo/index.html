@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>LifeSizer test page</title>
+
+      <!-- begin LifeSizer content -->
+      <script type="text/javascript">
+        var lifesizer_domain = document.location.host;
+        window.lsAsyncInit = function() {
+          Ls.init({ appKey: 'e428472acbn', user: '1', host: lifesizer_domain, serverCheck: false });
+        };
+        (function() {
+          var s = document.createElement('script'); s.async = true; s.type = 'text/javascript';
+          s.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://' + lifesizer_domain + '/assets/embed.js';
+          x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }());
+      </script>
+      <!-- end LifeSizer content -->
+    <style type="text/css" media="all">
+    
+tr {
+    height: 300px;    
+}
+td {
+    width: 300px;
+    height: 300px;
+    padding:  10px;
+}
+img {
+    /* border: 1px solid black; */
+}
+
+    </style>
+  </head>
+  <body>
+    <h1>Example Store</h1>
+    
+    This page demonstrates how an online store or other image site might use the LifeSizer service. 
+    
+    <table id="imageTable" border="1px">
+      <tr> 
+        <td>
+          <img class="lsview" data-ls-ref="altoids" src="/images/examples/altoids.jpg" width="225" height="141"/>
+        </td>
+        <td>
+          <img class="lsview"
+               data-lifesizer="{&quot;ow&quot;:1322,&quot;oh&quot;:2400,&quot;lsw&quot;:379,&quot;lsh&quot;:687,&quot;scale&quot;:100}" data-ls-ref="iphone"
+               src="/images/examples/iphone.jpg" width="256" height="256"/>
+        </td>
+        <td>
+          <img data-ls-ref="_1" id="lx5" src="http://spos.lhsm88.com/UploadFiles/dc/dc_pana_LX5_1010.jpg" width="278" height="209"/>
+        </td>
+      </tr>
+      <tr> 
+        <td>
+          <img class="lsview" data-ls-ref="n810" src="/images/examples/nokia_n810.jpg" width="250" height="200"/>
+        </td>
+        <td>
+          <a href="http://www.cocacola.com"><img class="lsview" data-ls-ref="cokezero" src="/images/examples/cokezero.jpg" width="130" height="240"/></a>
+        </td>
+        <td>
+            <div id="lsClickTest" data-ls-ref="aa">
+              <img class="lsview" src="/images/examples/aa.jpg" width="69" height="199"/>
+            </div>
+        </td>
+      </tr>
+
+    </table>
+
+    <p>
+        <div data-ls-ref="altoids" style="display:none">view altoids in lifesize</div>
+        <div data-ls-ref="n810" style="display:none">view Nokia N810 in lifesize</div>
+        <div data-ls-ref="aa" style="display:none">view AA battery in lifesize</div>
+    </p>    
+
+  </body>
+</html>

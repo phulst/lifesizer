@@ -1,0 +1,57 @@
+/** base style for buttons */
+.button, .blue-button, .large-blue-button, .gray-button, .large-gray-button {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Tahoma, Arial, sans-serif;
+  border: none;
+  display: inline;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: 0px -1px 0px #124d84;
+  padding: 5px 10px 8px 10px;
+  margin: 10px;
+  cursor: pointer;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px; }
+  .button:hover, .blue-button:hover, .large-blue-button:hover, .gray-button:hover, .large-gray-button:hover {
+    color: white; }
+
+.blue-button, .large-blue-button {
+  background-image: linear-gradient(bottom, #016fdd 43%, #0095ff 91%);
+  background-image: -o-linear-gradient(bottom, #016fdd 43%, #0095ff 91%);
+  background-image: -moz-linear-gradient(bottom, #016fdd 43%, #0095ff 91%);
+  background-image: -webkit-linear-gradient(bottom, #016fdd 43%, #0095ff 91%);
+  background-image: -ms-linear-gradient(bottom, #016fdd 43%, #0095ff 91%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.43, #016fdd), color-stop(0.91, #0095ff));
+  background-color: #016fdd;
+  /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#016fdd, endColorstr=#0095ff)"; */ }
+
+.gray-button, .large-gray-button {
+  background-image: linear-gradient(bottom, #454545 11%, #575757 91%);
+  background-image: -o-linear-gradient(bottom, #454545 11%, #575757 91%);
+  background-image: -moz-linear-gradient(bottom, #454545 11%, #575757 91%);
+  background-image: -webkit-linear-gradient(bottom, #454545 11%, #575757 91%);
+  background-image: -ms-linear-gradient(bottom, #454545 11%, #575757 91%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.11, #454545), color-stop(0.91, #575757));
+  background-color: #454545; }
+
+/** base style for large buttons */
+.large-button, .large-blue-button, .large-gray-button {
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -moz-box-shadow: 2px 2px 2px #808080;
+  -webkit-box-shadow: 2px 2px 2px #808080;
+  box-shadow: 2px 2px 2px #808080;
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#808080')";
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#808080');
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 15px 40px 15px 40px;
+  text-decoration: none; }
+  .large-button:hover, .large-blue-button:hover, .large-gray-button:hover {
+    text-decoration: underline; }

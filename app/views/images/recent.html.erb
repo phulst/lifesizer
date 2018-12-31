@@ -1,0 +1,29 @@
+
+<% content_for :head do %>
+  <%= javascript_include_tag :images_gallery %>
+  <%= stylesheet_link_tag 'images/gallery', :media => 'all' %>
+<% end %>
+
+<h2>Recently added images</h2>
+
+<%= link_to 'See featured images', images_featured_path %>
+
+<% if @images.nil? || @images.empty? %>
+<p>No images</p>
+<% else %>
+
+    <div id="container">
+      <% for image in @images %>
+        <%= render :partial => 'image_tile', :locals => { :image => image, :compact => true, :product_images => false } %>
+      <% end %>
+    </div>
+
+    <nav id="page-nav">
+      <a href="<%= next_page_url %>">next page</a>
+    </nav>
+
+<% end %>
+
+<br />
+
+<%= link_to 'Add your own LifeSize image', new_image_path, :class => 'big-link' %>

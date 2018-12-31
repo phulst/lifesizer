@@ -1,0 +1,33 @@
+
+<% content_for :head do %>
+  <%= javascript_include_tag :images_gallery %>
+  <%= stylesheet_link_tag 'images/gallery', :media => 'all' %>
+<% end %>
+
+<% title "Your LifeSizer images" %>
+
+<h2>Your LifeSizer images</h2>
+
+<% if @images.empty? %>
+<p>You haven't added any images yet</p>
+<% else %>
+
+<div id="wide-layout">
+
+<div id="container">
+  <% for image in @images %>
+    <%= render :partial => 'image_tile', :locals => { :image => image, :compact => false, :product_images => true } %>
+  <% end %>
+
+  <nav id="page-nav">
+    <a href="<%= next_page_url %>">next page</a>
+  </nav>
+</div>
+
+</div><!-- end wide layout -->
+
+<% end %>
+
+<br />
+
+<%= link_to 'Add a LifeSize image', new_image_path %>

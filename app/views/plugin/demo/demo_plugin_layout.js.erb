@@ -1,0 +1,190 @@
+// ==UserScript==
+// @name           LifeSizer - <%= plugin_name %> demo
+// @namespace      http://www.lifesizer.com/demo/<%= plugin_name %>
+// @description    This demo adds LifeSizer capabilities to <%= plugin_hostname %>
+// @match          <%= plugin_hostmatch %>
+// ==/UserScript==
+
+(function () {
+    var LINK_TEXT = "view in life-size";
+    var LS_LINK_ID = 'lsLink';
+
+    // endpoints, set dynamically
+    var HOST             = '<%= current_host %>';
+    var CACHE_HOST       = '<%= cache_host %>';
+    var ASSETS_HOST      = '<%= assets_host %>';
+    // urls to embed script
+    var EMBED_SCRIPT_URL     = '<%= embed_script_url(false)%>';
+    var SSL_EMBED_SCRIPT_URL = '<%= embed_script_url(true)%>';
+    var BOOKMARKLET_URL      = '<%= bookmarklet_url %>';
+
+    var bookmarkletLoaded = false;
+
+    // return window object - this works both in Greasemonkey scripts and Chrome plugins
+    var win = (function(){
+        var a;
+        try {
+            a = unsafeWindow === window ? false : unsafeWindow;
+        } finally {
+            return a || (function(){
+                var e = document.createElement('p');
+                e.setAttribute('onclick', 'return window;');
+                return e.onclick();
+            }());
+        }
+    }());
+
+    var handlers = [];
+    var handler;
+
+	// this is where the thinkgeek specific stuff goes
+	handlers.push(
+        <%= yield %>
+    );
+
+
+    /**
+     * creates a DIV element containing the LifeSizer link, and returns this DIV element. Caller is
+     * responsible for adding this element to the DOM and positioning it.
+     * @param ref image ref
+     * @param altImageUrl (optional) image url, if a variation of the original image should be used instead
+     * @return DOM element of link
+     */
+    function createLifeSizerLinkElem(ref, altImageUrl) {
+        //var u = (typeof(altImageUrl) == 'string') ? (' data-ls-url="'+altImageUrl+'"') : '';
+        var elem = document.createElement('div');
+        var imgUrl = 'http://' + ASSETS_HOST + '/img/button/asw_lifesizer30.png';
+
+        elem.id = LS_LINK_ID;
+        elem.setAttribute('data-ls-ref', ref);
+        if (typeof(altImageUrl) == 'string') {
+            elem.setAttribute('data-ls-imgurl', altImageUrl);
+        }
+        elem.style.position = 'absolute';
+        elem.style.width = '182px';
+        //elem.style.height = '40px';
+        //elem.style.paddingLeft = '45px';
+        //elem.style.textAlign = 'left';
+        //elem.style.background = 'url("http://' + ASSETS_HOST + '/img/logo/ls_icon_gray40.png") no-repeat';
+
+        elem.style.display = 'none'; // hide by default
+        elem.innerHTML = '<img src="' + imgUrl + '" width="182" height="30" />';
+
+        //elem.innerHTML = '<a href="#" style="font-size:15px;line-height:40px;vertical-align:middle;">' + LINK_TEXT + '</a>';
+        return elem;
+    }
+
+    /**
+     * finds the correct implementation for the current domain
+     * @return implementation handler for current domain
+     */
+    function findHandler() {
+        var domain = document.domain;
+        for (var i=0; i<handlers.length; i++) {
+            var p = new RegExp(handlers[i].domain);
+            if (p.test(domain)) {
+				return handlers[i];
+            }
+        }
+		return null; // no match
+    }
+
+    // initialize plugin, add links and set up click handlers
+    setTimeout(function () {
+
+        GM_log("initializing plugin");
+
+        jQuery = win.jQuery;
+
+        handler = findHandler();
+        if (handler) {
+            // initialize
+            handler.init();
+
+            // initialize configure image plugin
+            initImageConfigure();
+
+            // start calibration on ctrl-l
+            setShortCutHandler();
+
+            if (handler.isValidPage()) {
+                // embed the lifesizer script
+                embedLsScript(handler);
+                //alert("running LifeSizer plugin for domain: " + handler.domain + " ref: " + handler.getRef());
+            }
+       }
+    }, 500);
+
+    /**
+     * embed the LifeSizer script
+     */
+    function embedLsScript(handler) {
+        var lsOptions = {
+            appKey: handler.appKey,
+            user: handler.lsUser,
+            serverCheck: true,
+            host: HOST,
+            lsCacheHost: CACHE_HOST,
+            changeVisibility: false
+        };
+        if (handlerDefines('lifesizable'))
+            lsOptions.notifyImages = handler.lifesizable;
+        win.lsAsyncInit = function() {
+          win.Ls.init(lsOptions);
+        };
+        (function() {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = ('http:' == document.location.protocol) ? EMBED_SCRIPT_URL : SSL_EMBED_SCRIPT_URL;
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }());
+    }
+
+    // returns true if handlers defines a function with given name
+    function handlerDefines(name) {
+        return typeof(handler[name]) == 'function';
+    }
+
+    function initImageConfigure() {
+        win._lsv={ appKey: handler.appWriteKey, c:3, host: HOST };
+    }
+
+    /**
+     * start the image configuration
+     */
+    function doImageConfigure() {
+        if (!bookmarkletLoaded) {
+            // load bookmarklet script
+            bookmarkletLoaded = true;
+            var s=document.createElement('script');
+            s.setAttribute('type','text/javascript');
+            s.setAttribute('charset','UTF-8');
+            s.setAttribute('src', BOOKMARKLET_URL);
+            document.getElementsByTagName('head')[0].appendChild(s);
+        } else {
+            // bookmarklet has already been loaded.
+            win.LsBookmarklet.start();
+        }
+    }
+
+    /**
+     * attaches the ctrl-L key stroke handler to initiate the image calibration
+     */
+	function setShortCutHandler() {
+		var isCtrl = false;
+		function keyup(e) {
+			if (e.which == 17) isCtrl=false;
+		}
+		function keydown(e) {
+			if(e.which == 17) isCtrl=true;
+			if(e.which == 76 && isCtrl == true) {
+                doImageConfigure();
+				return false;
+			}
+		}
+		document.addEventListener("keyup", keyup, true);
+		document.addEventListener("keydown", keydown, true);
+	}
+})();
+// end

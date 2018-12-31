@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+lx3:
+  url: test_images/lx3/lx3-front.png
+  ref: lx3
+  width: 693
+  height: 474
+  ppi:
+  image_type: 2
+  name: Panasonic DMC-LX3
+  description: 
+
+two:
+  url: MyString
+  ref: MyString
+  width: 
+  height: 
+  ppi: 1.5
+  image_type: 
+  name: MyString
+  description: 

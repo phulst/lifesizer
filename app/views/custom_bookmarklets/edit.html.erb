@@ -1,0 +1,18 @@
+<h2>Edit bookmarklet</h2>
+
+<% if !@users %>
+    <p>This bookmarklet is not yet associated to any accounts</p>
+<% else %>
+    <p>This bookmarklet is used by the following users:
+      <ul>
+        <% @users.each do |u| %>
+            <li><%= u.email %></li>
+        <% end %>
+      </ul>
+    </p>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @custom_bookmarklet %> |
+<%= link_to 'Back', custom_bookmarklets_path %>

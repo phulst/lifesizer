@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+
+<h4><%= @custom_bookmarklet.name %></h4>
+
+<textarea disabled='true' style="width:900px;height: 400px;font-family: monospace;font-size: 12px">
+<%= @custom_bookmarklet.script.strip%>
+</textarea>
+</p>
+
+<%= link_to 'Edit', edit_custom_bookmarklet_path(@custom_bookmarklet) %> |
+<%= link_to 'Back', custom_bookmarklets_path %>

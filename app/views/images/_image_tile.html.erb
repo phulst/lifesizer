@@ -1,0 +1,26 @@
+<div class="ls_item">
+  <%= thumbnail(image, :type => :medium, :width => 200, :height => 400, :product_images => product_images) %>
+  <div class="metadata">
+    <% if (!compact || !image.name.blank? || !image.page_url.blank?) %>
+    <div>
+      <% if !image.name.blank? %>
+        <span class='name'><%= image.name %></span><br/>
+      <% end %>
+      <% if !image.page_url.blank? %>
+        <span class='page_url'><%= link_to "view on #{product_domain(image)}", image.page_url, :target => '_blank' %></span><br/>
+      <% end %>
+      <% if !compact %>
+      created: <%= distance_of_time_in_words(Time.now, image.created_at) %> ago
+      <% end %>
+    </div>
+    <% if !compact %>
+    <div class="buttons">
+      <%= warning_icon(image) %>
+      <a class="embed-link" href="javascript:showEmbed(<%=image.user_id%>,'<%=image.image_ref%>');" title="embed instructions"><img src="/img/galleries/embed_share.png" /></a>
+      <%= link_to(image_tag("/img/galleries/edit.png", :size => "16x16", :title => 'Edit'), edit_image_path(image)) %>
+      <%= link_to(image_tag("/img/galleries/delete.png", :size => "16x16", :title => 'Delete'), image_path(image), :method=>:delete, :confirm=>"Are you sure you want to delete this image?") %>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>

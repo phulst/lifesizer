@@ -1,0 +1,184 @@
+/**
+ * (c) 2012 LifeSizer, Inc.
+ *
+ * Main layout with formatting for global site template.
+ * This stylesheet is shared between Rails / WP sites.
+ */
+/* light blue */
+html {
+  min-height: 100%; }
+
+body {
+  background: #dfdfdf url("http://assets.lifesizer.com/img/layout/header_bg.png") repeat-x;
+  min-width: 1000px; }
+
+/**
+ * CSS for main page layout
+ */
+#wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: url("http://assets.lifesizer.com/img/layout/gradient_bg.png") no-repeat 50% 28px;
+  position: relative; }
+
+#header {
+  width: 954px;
+  margin: 0 auto 34px;
+  padding: 0 0 33px;
+  background: url("http://assets.lifesizer.com/img/layout/dot-line.png") no-repeat 26px 100%;
+  position: relative;
+  z-index: 10; }
+
+.social-buttons div {
+  display: inline-block; }
+.social-buttons .fb-like {
+  vertical-align: top;
+  width: 95px;
+  margin-left: 10px; }
+
+h1, strong {
+  font-weight: bold; }
+
+/** top login bar */
+.panel {
+  width: 946px;
+  text-align: right;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 8px 46px 0; }
+  .panel p {
+    margin: 0; }
+  .panel a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 5px 0 9px; }
+  .panel a:hover {
+    text-decoration: underline; }
+
+/* box that contains navigation links */
+.header-box {
+  width: 939px;
+  padding: 0 0 0 15px; }
+  .header-box:after {
+    display: block;
+    content: "";
+    clear: both; }
+
+/** logo container */
+.logo {
+  float: left;
+  background: url("http://assets.lifesizer.com/img/layout/logo224.png") no-repeat;
+  width: 224px;
+  height: 54px;
+  text-indent: -9999px;
+  overflow: hidden; }
+  .logo a {
+    display: block;
+    height: 100%; }
+
+/** top navigation */
+#nav {
+  float: right;
+  margin: 0 -3px 0 0;
+  padding: 19px 0 0;
+  list-style: none; }
+  #nav li {
+    float: left;
+    position: relative;
+    line-height: 1.3em; }
+    #nav li a {
+      font-size: 14px;
+      text-decoration: none;
+      color: #282828;
+      float: left;
+      padding: 0 10px 0 9px; }
+    #nav li:hover a, #nav li .active a {
+      color: #016fdd; }
+    #nav li:hover .drop {
+      display: block; }
+  #nav .drop {
+    display: none;
+    position: absolute;
+    top: 32px;
+    left: -9px;
+    width: 176px;
+    background: url("http://assets.lifesizer.com/img/layout/bg-drop-top.png") no-repeat;
+    padding-top: 22px;
+    z-index: 20; }
+    #nav .drop .holder {
+      background: url("http://assets.lifesizer.com/img/layout/bg-drop-bottom.png") no-repeat 0 100%;
+      padding-bottom: 9px; }
+    #nav .drop ul {
+      margin: 0;
+      padding: 0 13px 0 12px;
+      list-style: none;
+      overflow: hidden;
+      background: url("http://assets.lifesizer.com/img/layout/bg-drop-center.png") repeat-y; }
+      #nav .drop ul li {
+        float: left;
+        width: 149px;
+        background: url("http://assets.lifesizer.com/img/layout/separator.gif") repeat-x;
+        padding: 8px 0 0;
+        line-height: 1.2em; }
+        #nav .drop ul li:first-child {
+          background: none; }
+  #nav li:hover .drop ul li a,
+  #nav .drop ul li a {
+    font-weight: normal;
+    font-size: 14px;
+    float: left;
+    width: 141px;
+    padding: 0 0 8px 8px;
+    color: #555555; }
+  #nav li:hover .drop ul li a:hover,
+  #nav .drop ul li a:hover {
+    border-bottom: 8px solid #b4d4ff;
+    padding: 0 0 0 8px; }
+
+#main {
+  width: 954px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5; }
+
+.block {
+  width: 100%;
+  display: table; }
+
+.block:after {
+  display: block;
+  content: "";
+  clear: both; }
+
+/** page footer */
+#footer {
+  background: #353535;
+  width: 100%;
+  margin-top: 20px; }
+  #footer .footer-block {
+    overflow: hidden;
+    text-align: center;
+    width: 920px;
+    margin: 0 auto;
+    color: #fff;
+    padding: 23px 0 40px 34px; }
+    #footer .footer-block .copyright {
+      float: right;
+      margin: 3px 0 0;
+      font-size: 12px; }
+    #footer .footer-block .privacy {
+      color: #fff;
+      text-decoration: none;
+      float: left;
+      margin: -2px 0 0; }
+      #footer .footer-block .privacy:hover {
+        text-decoration: underline; }
+    #footer .footer-block .social-networks {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: inline; }
+      #footer .footer-block .social-networks li {
+        display: inline;
+        margin: 0 19px 0 0; }

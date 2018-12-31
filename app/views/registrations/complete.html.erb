@@ -1,0 +1,33 @@
+
+<h2>Thanks for signing up!</h2>
+
+
+<p>
+Now that you're a registered user, you can start to <%= link_to 'add your own LifeSizer images', new_image_path %>.
+</p>
+
+
+<p>
+Or, read about how you can <%= link_to 'embed LifeSizer images', 'http://www.lifesizer.com/add-lifesizer-to-your-site/' %> on your own site.
+</p>
+
+<% if prod_env? %>
+<!-- Google Code for Sign Up Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 957423894;
+var google_conversion_language = "ar";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "GxHbCNqZhQMQlsLEyAM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/957423894/?label=GxHbCNqZhQMQlsLEyAM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<% end %>

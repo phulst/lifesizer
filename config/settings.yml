@@ -1,0 +1,16 @@
+
+tmp_dir: /tmp
+
+app_root: <%= File.expand_path('../', __FILE__) %>
+
+uploader:
+  root_dir: uploads/ls_img
+  base_dir: ls
+  identify_path: /usr/local/bin/identify
+
+cloud_files:
+  username: enter_username
+  api_key: enter_api_key
+
+external_urls:
+  cms: www.lifesizer.com

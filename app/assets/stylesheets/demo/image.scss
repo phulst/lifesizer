@@ -1,0 +1,28 @@
+@import "../theme";
+@import "../mixins";
+
+img.lsview {
+  @include shadow;
+
+  border:       1px solid $image_border_color;
+  &:hover {
+    cursor:     pointer;
+  }
+}
+
+div.link {
+  margin-top:   10px;
+}
+
+div#imageContainer {
+  position:     relative;
+  width:        100%;
+
+  img.overlay {
+    position:   absolute;
+    top:        6px;
+    left:       6px;
+    opacity:    0.6;
+    filter:     'alpha(opacity=60)';
+  }
+}

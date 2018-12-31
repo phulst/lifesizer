@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Configure embed demo</title>
+    <style type="text/css">
+#imageBox {
+  border:  1px solid black;
+  width: 260px;
+  height: 145px;
+}
+    </style>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://beta.lifesizer.com/assets/plugin_config.js"></script>
+    <script type="text/javascript">
+
+function configureComplete(ref) {
+    alert('configuration complete for image with ref ' + ref);
+}
+
+$(function() {
+  $('.lifesizer-image').lifeSizerImageConfigure({appKey: 'app_key_goes_here', host: 'http://beta.lifesizer.com' }, configureComplete);
+});
+
+    </script>
+
+</head>
+<body>
+
+  <h3>LifeSizer configuration embed demo</h3>
+
+  <p>This page shows how the LifeSizer image configuration can be integrated with other sites.</p>
+
+    <div id="imageBox">
+
+
+      <img src="/images/examples/protractor.jpg" width="246" height="133"
+           class="lifesizer-image"
+           title="this is my protractor"
+           data-ls-image-url="http://beta.lifesizer.com/images/examples/protractor.jpg"
+           data-ls-setref="protractors" />
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+
+<% content_for :head do %>
+  <%= javascript_include_tag :images_gallery %>
+  <%= stylesheet_link_tag 'images/gallery', :media => 'all' %>
+<% end %>
+
+<h2>Featured LifeSize images</h2>
+
+<%= link_to 'Recently added LifeSize images', images_recent_path %>
+
+<% if @images.nil? || @images.empty? %>
+<p>There aren't any featured images</p>
+<% else %>
+
+<div id="container">
+  <% for image in @images %>
+    <%= render :partial => 'image_tile', :locals => { :image => image, :compact => true, :product_images => false } %>
+  <% end %>
+</div>
+<!-- distance_of_time_in_words(Time.now, image.created_at) -->
+
+<% end %>
+
+<br />
+
+<%= link_to 'Add your own LifeSize image', new_image_path, :class => 'big-link' %>

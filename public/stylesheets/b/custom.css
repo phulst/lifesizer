@@ -1,0 +1,43 @@
+//p, li, address { color:#19199 }
+// p, li, address { color:#303030 }
+a { color:#397493 }
+a:hover { color:#c0bfbf }
+
+/* body { background-image:url('http://wp.lifesizer.com/wp-content/themes/bolder_tf/images/colors/blue/bg.gif') } */
+#logo a { background-image:url('/images/logo/logo240.png') }
+/* #slider { background-image:url('http://wp.lifesizer.com/wp-content/themes/bolder_tf/images/colors/blue/slider-light.png') } */
+
+/* #footer { background-color:#003746; background-image:url(''); background-position:bottom center } */
+#copyright { background-color:#222c60 }
+
+
+/* #nav li { border-left:1px solid #014254; border-right:1px solid #002b36 } */
+#nav a { color:#fff }
+#nav a:hover { color:#ff7700 }
+#nav span { color:#b7b5b5 }
+
+#nav-slider, #top-slogan { background-image:url('http://wp.lifesizer.com/wp-content/themes/bolder_tf/images/bg/nav-slider.png') }
+#nav-slider a:hover, #nav-slider li:hover a, #nav-slider li.active a, #nav-slider li.current a { color:#00607b }
+#nav-slider .arrow { background-image:url('http://wp.lifesizer.com/wp-content/themes/bolder_tf/images/icons/arrow-up.png') }
+
+#slider .panel h1, #slider .panel h2, #slider .panel p, #slider a, #slider li { color:#fff }
+
+#content { background-color:#fff }
+
+#footer p, #footer li, #footer address, #footer span, #copyright, #footer a.contact strong { color:#ddd }
+#footer a, #copyright a { color:#88b3b9 }
+#footer a:hover, #copyright a:hover { color:#95cfd8 }
+#footer h3 { color:#f1efef }
+#footer .menu li, #footer .menu li.first, #footer .menu li.last, #footer address { border-color:#034658 }
+#footer .flickr img { background-color:#01425; border-color:#025066 }
+
+
+#top-bar { height:22px; background-color: #222c60; color: white; font-size: 14px; text-align: right; padding-top: 3px; }
+#top-bar span.email { color: #99ccff }
+#top-bar a { color: white; }
+#top-bar a:hover { color: #ff7700; }
+
+.divider1 { height:3px; background-color: #fab414 }
+#header { height:110px; background-color: #99ccff }
+.divider2 { height:2px; background-color: #F26822 }
+

@@ -1,0 +1,4 @@
+<% if alert || notice %>
+  <%= render :partial => 'layouts/notice', :object => notice if notice %>
+  <%= render :partial => 'layouts/alert', :object => alert if alert %>
+<% end %>
